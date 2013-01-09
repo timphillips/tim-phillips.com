@@ -1,4 +1,4 @@
-/* Author: Tim Phillips 2012 */
+/* Author: Tim Phillips 2012-2013 */
 
 /****************************************
                                General
@@ -20,9 +20,15 @@ img {
     margin-right: auto;
 }
 
-a:link {color:#287c7f;}
-a:visited {color:#2E6791;}
-a:hover {color:#184B4D;}
+a:link {
+    color:#287c7f;
+}
+a:visited {
+    color:#2E6791;
+}
+a:hover {
+    color:#184B4D;
+}
 
 /****************************************
                                Header
@@ -30,52 +36,52 @@ a:hover {color:#184B4D;}
 
 #header {
     width: 780px;
-	margin: 4em auto 0em auto;
-	padding: 2em 2em 2em 2em;
-	background: #fff;
-	z-index: 2;
-	position: relative;
+    margin: 4em auto 0em auto;
+    padding: 2em 2em 2em 2em;
+    background: #fff;
+    z-index: 2;
+    position: relative;
 }
 
 ul#navigation {
     font-size: 1.6em;
     text-transform: uppercase;
     letter-spacing: 1px;
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 ul#navigation li {
-	display: inline;
+    display: inline;
 }
 
 ul#navigation li a:link,
 ul#navigation li a:visited {
-	color: #287c7f;
-	margin: 0 1.4em 0 .2em;
-	padding: 0.9em 1em 0.8em 1em;
-	text-decoration: none;
+    color: #287c7f;
+    margin: 0 1.4em 0 .2em;
+    padding: 0.9em 1em 0.8em 1em;
+    text-decoration: none;
 }
 
 ul#navigation li a:hover, 
 ul#navigation li a.active {
-	color: #287c7f;
-	margin: 0 1.4em 0 .2em;
-	padding: 0.9em 1em 0.8em 1em;
-	background: #c5e8ea;
+    color: #287c7f;
+    margin: 0 1.4em 0 .2em;
+    padding: 0.9em 1em 0.8em 1em;
+    background: #c5e8ea;
 }
 	
 .name {
-	font-size: 1.3em;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 4px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
 
 .selected {
-	background: #c5e8ea;
-	margin: 0 1.4em 0 .2em;
-	padding: 0.9em 1em 0.8em 1em;
+    background: #c5e8ea;
+    margin: 0 1.4em 0 .2em;
+    padding: 0.9em 1em 0.8em 1em;
 }
 
 /****************************************
@@ -84,49 +90,49 @@ ul#navigation li a.active {
 
 #scrollingHeader {
     width: 780px;
-	margin: 0em auto;
-	padding: 1em 2em 1em 2em;
-	background: #fff;
-	z-index: 1;
-	position: fixed;
-	top: 0em;
+    margin: 0em auto;
+    padding: 1em 2em 1em 2em;
+    background: #fff;
+    z-index: 1;
+    position: fixed;
+    top: 0em;
     left: 50%;
     margin-left: -410px;
 }
 
 #scrollingHeaderCover {
-	background: #E3E3E3;
-	width: 100%;
-	height: 4em;
-	z-index: 3;
-	position: absolute;
-	top: 0em;
+    background: #E3E3E3;
+    width: 100%;
+    height: 4em;
+    z-index: 3;
+    position: absolute;
+    top: 0em;
 }
 
 ul#scrollingNav {
     text-transform: uppercase;
     letter-spacing: 1px;
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 ul#scrollingNav li {
-	display: inline;
+    display: inline;
 }
 
 ul#scrollingNav li a:link,
 ul#scrollingNav li a:visited {
-	color: #000001;
-	margin: 0 .2em 0 .2em;
-	padding: .5em;
-	text-decoration: none;
+    color: #000001;
+    margin: 0 .2em 0 .2em;
+    padding: .5em;
+    text-decoration: none;
 }
 
 ul#scrollingNav li a:hover, ul#navigation li a.active {
-	color: #000001;
-	margin: 0 .2em 0 .2em;
-	padding: .5em;
-	background: #c5e8ea;
+    color: #000001;
+    margin: 0 .2em 0 .2em;
+    padding: .5em;
+    background: #c5e8ea;
 }
 
 /****************************************
@@ -135,30 +141,34 @@ ul#scrollingNav li a:hover, ul#navigation li a.active {
 
 #content {
     width: 780px;
-	margin: 0em auto 0em auto;
-	padding: 0em 2em 1em 2em;
-	background: #fff;
+    margin: 0em auto 0em auto;
+    padding: 0em 2em 1em 2em;
+    background: #fff;
 }
 
 #content h3 {
-	font-size: 1.8em;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 4px;
-	color: #555555;
-	margin: 0;
-	padding: 1em 0em 0.5em 0em;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #555555;
+    margin: 0;
+    padding: 1em 0em 0.5em 0em;
 }
 
 #content p {
+    padding: 0;
+    margin: 0;
+    padding: 0.5em 0em 0.5em 0em;
     font-size: 1.5em;
-	padding: 0;
-	margin: 0;
-	padding: 0.5em 0em 0.5em 0em;
+}
+
+#content ul {
+    font-size: 1.5em;
 }
 
 .subtext {
-	font-size: 0.8em;
+    font-size: 0.8em;
 }
 
 img.banner {
@@ -172,10 +182,10 @@ img.banner {
 
 #footer {
     width: 780px;
-	margin: 0em auto 5em auto;
-	padding: 1em 2em 1em 2em;
-	background: #fff;
-	text-transform: uppercase;
+    margin: 0em auto 5em auto;
+    padding: 1em 2em 1em 2em;
+    background: #fff;
+    text-transform: uppercase;
     letter-spacing: 1px;
-	text-align: right;
+    text-align: right;
 }
