@@ -79,6 +79,14 @@
     </div>
     
     <div class="project_box">
+    	<a href="photo-web/" class="project_title" id="photo_web">PhotoWeb (2012)</a>
+    	<a href="photo-web/">
+    	<img src="../images/project_icons/photoweb.gif" id='photo_web_thumbnail' alt="PhotoWeb" class="thumbnail">
+    	</a>
+    	<br>&nbsp; &nbsp;<span class="subtext">A photo-sharing website, similar to Flickr, where a user can upload and share photos with other users.</span>
+    </div>
+    
+    <div class="project_box">
     	<a href="space-adventure/" class="project_title" id="space_adventure">Space Adventure! (2011)</a>
     	<a href="space-adventure/">
     	<img src="../images/project_icons/spaceadventure.gif" id='space_adventure_thumbnail' alt="Space Adventure" class="thumbnail">

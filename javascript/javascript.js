@@ -4,11 +4,12 @@ $(document).ready(function() {
 	// See if the cookie exists
 	var imageIndex = readCookie(cookieName);
 	if (imageIndex != null) {
-	    // Show the next image in sequence
-		imageIndex = Number(imageIndex, 10) + 1;
-		if (imageIndex >= images.length) {
-			imageIndex = 0;
-		}
+	    // Show a random image that is different from the last image shown.
+	    var randomNum = imageIndex;
+	    while (randomNum == imageIndex) {
+	       randomNum = Math.floor(Math.random()*6);
+	    }
+	    imageIndex = randomNum;
   		setCookie(cookieName, imageIndex, 1);
   	} else {
   	    // Always show the first image the first visit
