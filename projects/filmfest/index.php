@@ -3,7 +3,7 @@
 <head>
     <title>Tim Phillips | ABE Film Festival Website</title>
     <link REL=StyleSheet HREF="../../style/stylesheet.css" TYPE="text/css" MEDIA=screen>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript" src="../../javascript/javascript.js"></script>
     <style>
         #highlighted_link a:link {padding: 20px 30px;color:#575656;text-decoration:none;background-color:#82e3e7;}
@@ -34,7 +34,7 @@
         </tr>
     </table>
 
-    </div>
+ </div>
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'); ?>
 

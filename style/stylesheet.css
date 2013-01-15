@@ -30,6 +30,10 @@ a:hover {
     color:#184B4D;
 }
 
+.center {
+     text-align:center;
+}
+
 /****************************************
                                Header
 ****************************************/
@@ -58,7 +62,7 @@ ul#navigation li {
 ul#navigation li a:link,
 ul#navigation li a:visited {
     color: #287c7f;
-    margin: 0 1.4em 0 .2em;
+    margin: 0 1.3em 0 .2em;
     padding: 0.9em 1em 0.8em 1em;
     text-decoration: none;
 }
@@ -66,7 +70,7 @@ ul#navigation li a:visited {
 ul#navigation li a:hover, 
 ul#navigation li a.active {
     color: #287c7f;
-    margin: 0 1.4em 0 .2em;
+    margin: 0 1.3em 0 .2em;
     padding: 0.9em 1em 0.8em 1em;
     background: #c5e8ea;
 }

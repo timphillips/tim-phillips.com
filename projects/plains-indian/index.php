@@ -3,10 +3,12 @@
 <head>
     <title>Tim Phillips | Plains Indian Painting</title>
     <link REL=StyleSheet HREF="../../style/stylesheet.css" TYPE="text/css" MEDIA=screen>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript" src="../../javascript/javascript.js"></script>
 </head>
 <body>
+
+<a name="top"></a>
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
 
@@ -17,7 +19,6 @@
 
     <p>The completed painting was displayed at the Western Art Show at the 2008 Calgary Exhibition & Stampede. </p>
 
-    <!-- Yes, I am using a table. Sorry.-->
     <table cellspacing="2">
         <tr>
             <td><img src="images/CalgaryStampede.jpg" alt="Calgary Stampede" border="1" width="385" height="513.4"></td>
@@ -26,8 +27,8 @@
     </table>
 
     <p>The process:</p>
-    <br><br>
-    <div style="width: 50%; margin: 0 auto;">
+    
+    <div class="center">
         <img src="images/1.jpg" alt="Calgary Stampede" border="1"><br>
         <img src="images/2.jpg" alt="Calgary Stampede" border="1"><br>
         <img src="images/3.jpg" alt="Calgary Stampede" border="1"><Br>

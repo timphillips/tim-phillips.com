@@ -14,47 +14,49 @@
     <img alt="PEP" src="images/banner.jpg" class="banner">
     <h3>Personal Edmonton Planner</h3>
 
-    <p>This was a semester-long project completed for a software engineering class (CMPUT 301). It was developed in association with the City Of Edmonton. The basic idea behind the project was to create an application that would expose new visitors to the many different events and activities that Edmonton has to offer. The application would include suggestions based the user's preferences and also have the ability to plan activities with friends.  <a href="http://ssrg.cs.ualberta.ca/blogs/WS-20-3D/2010/12/20/my-cool-cmput-301-class-this-fall-2010/" target="_blank">Here</a> is a blog post my professor wrote which provides a little more background on the project.</p>
+    <p>This was a semester-long project completed for a software engineering class (CMPUT 301). It was developed in association with the City of Edmonton. The basic idea behind the project was to create an application that would expose new visitors to the many different events and activities that Edmonton has to offer. The application would include suggestions based the user's preferences and also have the ability to plan activities with friends.  <a href="http://ssrg.cs.ualberta.ca/blogs/WS-20-3D/2010/12/20/my-cool-cmput-301-class-this-fall-2010/" target="_blank">Here</a> is a blog post my professor wrote which provides a little more background on the project.</p>
 
-    <p>In the end, our project was selected to be among the top three in the class (out of eleven projects), and we received a $250 prize from the City Of Edmonton as a reward.</p>
+    <p>In the end, our project was selected to be among the top three in the class (out of eleven projects), and we received a $250 prize from the City of Edmonton as a reward.</p>
 
     <p><b>Demo:</b></p>
 
-    <center>
-    <object width="640" height="505"><param name="movie" value="http://www.youtube.com/v/pM18D92uF7Q?fs=1&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/pM18D92uF7Q?fs=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="505"></embed></object>
-    </center>
+    <div class="center">
+        <p><object width="640" height="505"><param name="movie" value="http://www.youtube.com/v/pM18D92uF7Q?fs=1&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/pM18D92uF7Q?fs=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="505"></embed></object></p>
+    </div>
 
     <p><b>Screenshots:</b></p>
 
-    <table>
-        <tr>
-            <td>
-                <a href="images/startpage.png" target="_blank"><img src="images/startpage.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-            <td>
-                <a href="images/load_profile.png" target="_blank"><img src="images/load_profile.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-            <td>
-                <a href="images/day_events.png" target="_blank"><img src="images/day_events.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="images/friend_suggestions.png" target="_blank"><img src="images/friend_suggestions.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-            <td>
-                <a href="images/driving_directions.png" target="_blank"><img src="images/driving_directions.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-            <td>
-                <a href="images/search_panel.png" target="_blank"><img src="images/search_panel.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="images/profile_adding_prefs_and_friends.png" target="_blank"><img src="images/profile_adding_prefs_and_friends.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
-            </td>
-        </tr>
-    </table>
+    <p>
+       <table align="center">
+           <tr>
+               <td>
+                   <a href="images/startpage.png" target="_blank"><img src="images/startpage.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+               <td>
+                   <a href="images/load_profile.png" target="_blank"><img src="images/load_profile.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+               <td>
+                   <a href="images/day_events.png" target="_blank"><img src="images/day_events.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <a href="images/friend_suggestions.png" target="_blank"><img src="images/friend_suggestions.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+               <td>
+                   <a href="images/driving_directions.png" target="_blank"><img src="images/driving_directions.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+               <td>
+                   <a href="images/search_panel.png" target="_blank"><img src="images/search_panel.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <a href="images/profile_adding_prefs_and_friends.png" target="_blank"><img src="images/profile_adding_prefs_and_friends.png" alt="Personal Edmonton Planner" border="1" width="249.5" height="187" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity=70"  onmouseout="this.style.opacity=1;this.filters.alpha.opacity=100"></a>
+               </td>
+           </tr>
+       </table>
+    </p>
     
     <p><b>Our pitch:</b></p>
     

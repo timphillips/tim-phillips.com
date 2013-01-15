@@ -3,7 +3,7 @@
 <head>
     <title>Tim Phillips | Edmonton Movie Guide</title>
     <link REL=StyleSheet HREF="../../style/stylesheet.css" TYPE="text/css" MEDIA=screen>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript" src="../../javascript/javascript.js"></script>
 </head>
 <body> 

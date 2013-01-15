@@ -32,7 +32,7 @@
     
     <p>Here's a demo of the game. Although the video capture is quite choppy, the game runs smoothy when played on the computer or on a mobile device. Unfortunately, the sound effects were not captured in the video either.</p> 
 
-    <div style="text-align:center;">
+    <div class="center">
         <p><iframe width="560" height="315" src="http://www.youtube.com/embed/gdCtVASE2nM" frameborder="0" allowfullscreen></iframe></p>
     </div>
 	
