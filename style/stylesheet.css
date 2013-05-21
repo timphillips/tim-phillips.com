@@ -18,6 +18,7 @@ img {
     display: block;
     margin-left: auto; 
     margin-right: auto;
+    border-style: none;
 }
 
 a:link {
@@ -187,9 +188,28 @@ img.banner {
 
 #footer {
     width: 780px;
-    margin: 0em auto 5em auto;
+    margin: 0em auto 0em auto;
     padding: 1em 2em 1em 2em;
     background: #fff;
     letter-spacing: 1px;
     text-align: right;
+}
+
+#social_links {
+    width: 780px;
+    margin: 0em auto 5em auto;
+    padding: 1em 0em 1em 2em;
+}
+
+#social_links img {
+    padding: 0px 3px 0px 3px;
+    width: 25px;
+    float: right;
+    opacity: 0.4;
+    filter: alpha(opacity = 40);
+}
+
+#social_links img:hover {
+    opacity: 0.8;
+    filter: alpha(opacity = 80);
 }

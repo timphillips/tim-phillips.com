@@ -11,7 +11,7 @@
 <div id="scrollingHeader">
     <div id="nav">
         <ul id="scrollingNav">
-            <li><a href="/" title="Home"><b>Tim Phillips </b></a> |</li>
+            <li><a href="/" title="Home"><b>Tim Phillips</b></a> |</li>
             <li><a href="/" title="About">About</a> |</li>
             <li><a href="/projects" title="Projects">Projects</a> |</li>
             <li><a href="/contact" title="Contact">Contact</a></li> 
