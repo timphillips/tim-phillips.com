@@ -13,8 +13,9 @@
 <div id="content">
     <img alt="Me!" src="" class="banner" id="me">
     <h3>About me</h3>
-    <p>Hi. I'm Tim. I'm a fourth-year student at the University of Alberta, working towards a computing science degree with a specialization in <a href="http://en.wikipedia.org/wiki/Bioinformatics" target="_blank">bioinformatics</a>.</p>
-    <p>I recently completed a 16-month internship at <a href="http://www.5d.ca/"target="_blank">Haemonetics Software Solutions</a>.</p>
+    <p>Hi. I'm Tim. I'm a recent graduate from the University of Alberta, with a Computing Science degree (specialization in <a href="http://en.wikipedia.org/wiki/Bioinformatics" target="_blank">bioinformatics</a>).</p>
+    <p>In the past, I completed a 16-month internship at <a href="http://www.5d.ca/"target="_blank">Haemonetics Software Solutions</a>.</p>
+    <p>I currently live in Calgary, Alberta.</p>
     <p>This website is a house for my web development experiments, artwork, and anything else that I'm working on at the moment.</p>
 </div>
 
