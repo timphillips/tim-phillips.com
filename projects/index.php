@@ -16,7 +16,7 @@
                     $(this).stop().animate({ opacity: 1.0 }, 200);
                 },
                 function() {
-                    $(this).stop().animate({ opacity: 0.3 }, 500);
+                    $(this).stop().animate({ opacity: 0.7 }, 500);
                 });
             });
             
@@ -29,7 +29,7 @@
                 function() {
                     var currentId = $(this).attr('id');
                     currentId += "_thumbnail";
-                    $('#'+currentId).stop().animate({ opacity: 0.3 }, 500);
+                    $('#'+currentId).stop().animate({ opacity: 0.7 }, 500);
                 });
             });
         });
@@ -48,8 +48,8 @@
         }	
         .thumbnail {
             float:right;
-	        opacity: 0.3;
-	        filter: alpha(opacity=30);
+            opacity: 0.7;
+            filter: alpha(opacity=70);
             border-style: solid;
             border-width: 1px;
             width: 40px;
@@ -69,6 +69,14 @@
     <h3>Projects</h3>
     
     <p><b>Recent work:</b></p>
+
+    <div class="project_box">
+        <a href="scrolling-cityscape/" class="project_title" id="scrolling_cityscape">Scrolling Cityscape (2013)</a>
+        <a href="scrolling-cityscape/">
+        <img src="../images/project_icons/scrollingcityscape.gif" id='scrolling_cityscape_thumbnail' alt="Scrolling Cityscape" class="thumbnail">
+        </a>
+        <br>&nbsp; &nbsp;<span class="subtext">An animated and randomly generated city, created with JavaScript and HTML5.</span>
+    </div>
 
     <div class="project_box">
     	<a href="cave-escape/" class="project_title" id="cave_escape">Cave Escape (2012)</a>
