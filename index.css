@@ -1,0 +1,38 @@
+html {
+    background: linear-gradient(to bottom right, #feebe7, #fcd8cf) fixed no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    max-width: 1012px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+header h1 {
+    border: 4px solid #e09785;
+    padding: 10px;
+    color: #e09785;
+    font-size: 40px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+header h2 {
+    border: 3px solid #f7886c;
+    padding: 10px;
+    color: #f67655;
+}
+
+section {
+    border: 2px solid #d1a094;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: #d1a094;
+}
+
+section h1 {
+    margin: 0;
+}
