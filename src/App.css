@@ -1,24 +1,118 @@
-.App {
+/*******************************************************************************
+Page root
+*******************************************************************************/
+
+html {
+  font-family: "Quando", serif;
+}
+
+body {
+  color: #444;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/*******************************************************************************
+Header
+*******************************************************************************/
+
+header {
+  margin-top: 20px;
+}
+
+header h1 {
+  border-radius: 3px;
+  border: 4px solid #555;
+  display: inline-block;
+  font-size: 40px;
+  padding: 10px;
   text-align: center;
+  width: 280px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/*******************************************************************************
+Section
+*******************************************************************************/
+
+section {
+  border-bottom: 2px dashed #cccccc;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 35px;
+  padding-top: 35px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+section:first-of-type {
+  border-top: 2px dashed #cccccc;
 }
 
-.App-intro {
-  font-size: large;
+section h2 {
+  margin: 0;
+  min-width: 250px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+section .content {
+  flex: 1; /* grow to full width */
+}
+
+section .content_header {
+  display: block;
+  overflow: auto;
+}
+
+section .content_header .meta {
+  min-width: 230px;
+  float: right;
+}
+
+section .content_header .meta p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  color: #999999;
+  text-align: right;
+}
+
+section .content_item {
+  margin-bottom: 50px;
+  min-width: 400px;
+}
+
+section .content_item:last-child {
+  margin-bottom: 0;
+}
+
+section .content_header h3 {
+  float: left;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+section .content_item p:first-child {
+  margin-top: 0;
+}
+
+section .content_item p:last-child {
+  margin-bottom: 0;
+}
+
+section .content_item p.detail {
+  font-size: 13px;
+  color: #999999;
+}
+
+/*******************************************************************************
+Footer
+*******************************************************************************/
+
+footer {
+  color: #b3b3b3;
+  font-size: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
