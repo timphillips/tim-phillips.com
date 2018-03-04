@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 const SocialLink = (props: { name: string; url: string }) => (
-  <a href={props.url} target="_blank" rel="noopener" className="socialLink">
+  <a className="home__link" href={props.url} target="_blank" rel="noopener">
     <span>{props.name}</span>
   </a>
 );
@@ -59,7 +59,10 @@ export const Home = () => (
     <section className="home__section">
       <p>I'm a full-stack software developer who builds web applications.</p>
       <p>
-        View my résumé <Link to="/resume">here</Link>.
+        View my résumé{" "}
+        <Link to="/resume" className="home__link">
+          here
+        </Link>.
       </p>
     </section>
 
