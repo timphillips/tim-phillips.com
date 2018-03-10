@@ -3,7 +3,7 @@ import * as React from "react";
 import { Footer } from "./common";
 
 export const Resume = () => (
-  <div>
+  <div className="resume">
     <ResumeContent />
     <Footer />
   </div>

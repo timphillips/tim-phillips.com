@@ -12,7 +12,7 @@ const SocialLinks = () => {
     {
       id: "github",
       name: "GitHub",
-      url: "https://www.instagram.com/tim.phillips/"
+      url: "https://www.github.com/timphillips/"
     },
     {
       id: "goodreads",
@@ -20,8 +20,8 @@ const SocialLinks = () => {
       url: "https://www.goodreads.com/user/show/13370091-tim"
     },
     {
-      id: "instragram",
-      name: "Instragram",
+      id: "instagram",
+      name: "Instagram",
       url: "https://www.instagram.com/tim.phillips/"
     },
     {
@@ -55,7 +55,7 @@ const SocialLinks = () => {
 };
 
 export const Home = () => (
-  <div>
+  <div className="home">
     <section className="home__section">
       <p>I'm a full-stack software developer who builds web applications.</p>
       <p>

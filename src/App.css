@@ -47,6 +47,11 @@ Header
   color: #555;
 } /* selected link */
 
+.home,
+.resume {
+  position: absolute;
+}
+
 /*******************************************************************************
 Home
 *******************************************************************************/
@@ -159,4 +164,23 @@ Footer
   margin-top: 20px;
   margin-bottom: 40px;
   text-align: center;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 100ms ease-in;
+  transition-delay: 100ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 100ms ease-out;
 }
