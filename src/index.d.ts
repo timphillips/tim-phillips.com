@@ -1,1 +1,3 @@
-declare module "react-router-transition";
+declare module "*.png";
+declare module "*.jpg";
+declare module "*.svg";
