@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import "./App.css";
+import { SkyeParallaxBackground } from "./ParallaxBackground";
 
 const Links = () => {
   const links = [
@@ -60,6 +61,7 @@ const Links = () => {
 
 const App = () => (
   <>
+    <SkyeParallaxBackground />
     <header className="header">
       <h1 className="header__title">Tim Phillips</h1>
       <h3 className="header__subtitle">full-stack software developer</h3>

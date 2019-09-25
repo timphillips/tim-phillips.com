@@ -1,21 +1,10 @@
-html {
-  overflow-y: scroll;
-}
-
 body {
-  background: url("images/background-2000.jpg") no-repeat center center fixed;
-  background-size: cover;
   padding: 0;
   margin: 0;
 }
 
-@media only screen and (max-width: 1000px) {
-  body {
-    background-image: url("images/background-1000.jpg");
-  }
-}
-
 .header {
+  position: relative;
   margin-top: 50px;
   width: 50%;
   min-width: 400px;
@@ -109,4 +98,45 @@ body {
   .header {
     margin-top: 20px;
   }
+}
+
+.parallaxContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parallax {
+  overflow: hidden;
+}
+
+.parallaxElement {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 70%;
+  left: -60px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.skye-background {
+  background-image: url("images/skye/background.png");
+}
+
+.skye-beach {
+  background-image: url("images/skye/beach.png");
+}
+
+.skye-foreground {
+  background-image: url("images/skye/foreground.png");
+}
+
+.skye-hill1 {
+  background-image: url("images/skye/hill1.png");
+}
+
+.skye-hill2 {
+  background-image: url("images/skye/hill2.png");
 }
