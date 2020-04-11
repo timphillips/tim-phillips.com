@@ -8,11 +8,13 @@ import styles from "./index.module.css"
 
 const HomePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+
   return (
     <>
       <Layout location={location} title={siteTitle}>
         <SEO title="Home" />
         <Nav theme="light" />
+
         <h1 className={styles.title}>Tim Phillips</h1>
         <h2 className={styles.subtitle}>full stack software developer</h2>
         <BackgroundImage image={data.backgroundImage.childImageSharp.fluid} />

@@ -13,8 +13,8 @@ const BlogPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Nav theme="dark" />
-      {/* <BackgroundImage image={data.backgroundImage.childImageSharp.fluid} /> */}
+      <Nav theme="light" />
+      <BackgroundImage image={data.backgroundImage.childImageSharp.fluid} />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
