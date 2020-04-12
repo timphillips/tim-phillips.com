@@ -3,27 +3,25 @@ import {
   FaGoodreads,
   FaInstagram,
   FaLinkedin,
-  FaStrava,
-} from "react-icons/fa"
-import { graphql, useStaticQuery } from "gatsby"
+  FaStrava
+} from "react-icons/fa";
+import { graphql, useStaticQuery } from "gatsby";
 
-import { Link } from "gatsby"
-import React from "react"
-import cx from "classnames"
-import styles from "./Nav.module.css"
-
-const iconSize = 24
+import { Link } from "gatsby";
+import React from "react";
+import cx from "classnames";
+import styles from "./Nav.module.css";
 
 const svgIconsById = {
   github: FaGithub,
   goodreads: FaGoodreads,
   instagram: FaInstagram,
   linkedin: FaLinkedin,
-  strava: FaStrava,
-}
+  strava: FaStrava
+};
 
 const SocialIcon = ({ iconId, name, link }) => {
-  const Icon = svgIconsById[iconId]
+  const Icon = svgIconsById[iconId];
   return (
     <li className={styles.socialLinkListItem}>
       <a
@@ -36,8 +34,8 @@ const SocialIcon = ({ iconId, name, link }) => {
         <Icon size={24} />
       </a>
     </li>
-  )
-}
+  );
+};
 
 const NavLink = ({ children, theme, to }) => (
   <li className={styles.navLinkListItem}>
@@ -53,7 +51,7 @@ const NavLink = ({ children, theme, to }) => (
       <div className={styles.navArrow} />
     </Link>
   </li>
-)
+);
 
 const Nav = ({ theme }) => {
   const { social } = useStaticQuery(graphql`
@@ -69,7 +67,7 @@ const Nav = ({ theme }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <nav
@@ -98,7 +96,7 @@ const Nav = ({ theme }) => {
         ))}
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

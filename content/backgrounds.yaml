@@ -1,0 +1,9 @@
+- name: background1
+  theme: light
+  image: assets/backgrounds/background-1.jpg
+- name: background2
+  theme: dark
+  image: assets/backgrounds/background-2.jpg
+- name: background3
+  theme: light
+  image: assets/backgrounds/background-3.jpg
