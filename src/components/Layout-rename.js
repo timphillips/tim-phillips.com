@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
 const Layout = ({ children }) => {
-  let header
+  let header;
 
   return (
     <div
@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
         fontFamily: ["Quando", "serif"],
         maxWidth: 1200,
         paddingLeft: 30,
-        paddingRight: 30,
+        paddingRight: 30
       }}
     >
       <header>{header}</header>
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer> */}
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

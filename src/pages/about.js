@@ -1,8 +1,8 @@
-import BackgroundImage from "../components/backgroundImage";
-import Layout from "../components/layout";
+import BackgroundImage from "../components/Background";
+import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 import React from "react";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 

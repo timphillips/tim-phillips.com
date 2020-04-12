@@ -1,14 +1,14 @@
-import { Link, graphql } from "gatsby"
+import { Link, graphql } from "gatsby";
 
-import BackgroundImage from "../components/backgroundImage"
-import Layout from "../components/layout"
-import Nav from "../components/Nav"
-import React from "react"
-import SEO from "../components/seo"
+import BackgroundImage from "../components/backgroundImage";
+import Layout from "../components/Layout";
+import Nav from "../components/Nav";
+import React from "react";
+import SEO from "../components/SEO";
 
 const BlogPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const siteTitle = data.site.siteMetadata.title;
+  const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -16,7 +16,7 @@ const BlogPage = ({ data, location }) => {
       <Nav theme="light" />
       <BackgroundImage image={data.backgroundImage.childImageSharp.fluid} />
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const title = node.frontmatter.title || node.fields.slug;
         return (
           <article key={node.fields.slug}>
             <header>
@@ -34,18 +34,18 @@ const BlogPage = ({ data, location }) => {
             <section>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.frontmatter.description || node.excerpt
                 }}
               />
             </section>
           </article>
-        )
+        );
       })}
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;
 
 export const pageQuery = graphql`
   query {
@@ -77,4 +77,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

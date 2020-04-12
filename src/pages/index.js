@@ -1,7 +1,7 @@
 import { dark, light } from "../assets/theme";
 import styled, { ThemeProvider } from "styled-components";
 
-import { Background } from "../components/backgroundImage";
+import { Background } from "../components/Background";
 import Layout from "../components/layout";
 import Nav from "../components/Nav";
 import React from "react";
