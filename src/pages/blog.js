@@ -1,20 +1,17 @@
 import { Link, graphql } from "gatsby";
 
-import BackgroundImage from "../components/backgroundImage";
+import BackgroundImage from "../components/Background";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 import React from "react";
 import SEO from "../components/SEO";
 
 const BlogPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} initialBackground={location.state.background}>
       <SEO title="All posts" />
-      <Nav theme="light" />
-      <BackgroundImage image={data.backgroundImage.childImageSharp.fluid} />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
@@ -66,13 +63,6 @@ export const pageQuery = graphql`
             title
             description
           }
-        }
-      }
-    }
-    backgroundImage: file(relativePath: { eq: "background-6.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

@@ -59,16 +59,16 @@ const SocialLinks = styled.div`
   margin: 0;
 `;
 
-const NavLink = ({ children, theme, to }) => (
+const NavLink = ({ children, state, to }) => (
   <NavLinkListItem>
-    <StyledLink activeClassName={activeClassName} to={to}>
+    <StyledLink activeClassName={activeClassName} to={to} state={state}>
       <div>{children}</div>
       <NavArrow />
     </StyledLink>
   </NavLinkListItem>
 );
 
-const Nav = ({ theme }) => {
+const Nav = ({ state }) => {
   const { social } = useStaticQuery(graphql`
     query {
       social: allSocialYaml {
@@ -86,16 +86,16 @@ const Nav = ({ theme }) => {
   return (
     <StyledNav>
       <NavLinks>
-        <NavLink theme={theme} to="/">
+        <NavLink to="/" state={state}>
           home
         </NavLink>
-        <NavLink theme={theme} to="/about">
+        <NavLink to="/about" state={state}>
           about
         </NavLink>
-        <NavLink theme={theme} to="/blog">
+        <NavLink to="/blog" state={state}>
           blog
         </NavLink>
-        <NavLink theme={theme} to="/projects">
+        <NavLink to="/projects" state={state}>
           projects
         </NavLink>
       </NavLinks>
