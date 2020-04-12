@@ -1,56 +1,71 @@
-import {
-  FaGithub,
-  FaGoodreads,
-  FaInstagram,
-  FaLinkedin,
-  FaStrava
-} from "react-icons/fa";
 import { graphql, useStaticQuery } from "gatsby";
 
 import { Link } from "gatsby";
 import React from "react";
-import cx from "classnames";
-import styles from "./Nav.module.css";
+import SocialLink from "./SocialLink";
+import styled from "styled-components";
 
-const svgIconsById = {
-  github: FaGithub,
-  goodreads: FaGoodreads,
-  instagram: FaInstagram,
-  linkedin: FaLinkedin,
-  strava: FaStrava
-};
+const activeClassName = "link-active";
 
-const SocialIcon = ({ iconId, name, link }) => {
-  const Icon = svgIconsById[iconId];
-  return (
-    <li className={styles.socialLinkListItem}>
-      <a
-        href={link}
-        rel="noopener noreferrer"
-        target="_blank"
-        title={name}
-        className={styles.socialIcon}
-      >
-        <Icon size={24} />
-      </a>
-    </li>
-  );
-};
+const NavLinkListItem = styled.li`
+  list-style: none;
+  padding: 0;
+`;
+
+const NavArrow = styled.div`
+  padding-top: 5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid ${props => props.theme.color.main};
+  color: ${props => props.theme.color.main};
+  visibility: hidden;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  box-shadow: none;
+  margin: 0px 30px;
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${props => props.theme.color.main};
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &.${activeClassName} > ${NavArrow} {
+    visibility: unset;
+  }
+`;
+
+const StyledNav = styled.nav`
+  border-bottom: 3px solid ${props => props.theme.color.main};
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const NavLinks = styled.div`
+  display: flex;
+  padding: 0;
+  margin: 0;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  padding: 0;
+  margin: 0;
+`;
 
 const NavLink = ({ children, theme, to }) => (
-  <li className={styles.navLinkListItem}>
-    <Link
-      activeClassName={styles.navLink_active}
-      className={cx(
-        styles.navLink,
-        theme === "light" ? styles.navLink_light : styles.navLink_dark
-      )}
-      to={to}
-    >
+  <NavLinkListItem>
+    <StyledLink activeClassName={activeClassName} to={to}>
       <div>{children}</div>
-      <div className={styles.navArrow} />
-    </Link>
-  </li>
+      <NavArrow />
+    </StyledLink>
+  </NavLinkListItem>
 );
 
 const Nav = ({ theme }) => {
@@ -59,10 +74,9 @@ const Nav = ({ theme }) => {
       social: allSocialYaml {
         edges {
           node {
-            id
             name
             iconId
-            link
+            url
           }
         }
       }
@@ -70,13 +84,8 @@ const Nav = ({ theme }) => {
   `);
 
   return (
-    <nav
-      className={cx(
-        styles.nav,
-        theme === "light" ? styles.nav_light : styles.nav_dark
-      )}
-    >
-      <ol className={styles.navLinks}>
+    <StyledNav>
+      <NavLinks>
         <NavLink theme={theme} to="/">
           home
         </NavLink>
@@ -89,13 +98,13 @@ const Nav = ({ theme }) => {
         <NavLink theme={theme} to="/projects">
           projects
         </NavLink>
-      </ol>
-      <ul className={styles.socialLinks}>
+      </NavLinks>
+      <SocialLinks>
         {social.edges.map(({ node }) => (
-          <SocialIcon key={node.name} {...node} />
+          <SocialLink key={node.name} {...node} />
         ))}
-      </ul>
-    </nav>
+      </SocialLinks>
+    </StyledNav>
   );
 };
 

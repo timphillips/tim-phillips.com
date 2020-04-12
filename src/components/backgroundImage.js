@@ -1,23 +1,34 @@
 import Image from "gatsby-image";
 import React from "react";
-import styles from "./backgroundImage.module.css";
+import styled from "styled-components";
 
-export const Background = ({ images, background, onChange }) => {
+const StyledImage = styled(Image)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+`;
+
+export const Background = ({ images, current, onChange }) => {
   const imageElements = React.useMemo(() => {
     return images.map(({ name, image }) => (
       <BackgroundImage
         key={name}
         image={image.childImageSharp.fluid}
-        opacity={name === background ? 1 : 0}
+        opacity={name === current ? 1 : 0}
       ></BackgroundImage>
     ));
-  }, [images, background]);
+  }, [images, current]);
 
   return (
     <>
       <BackgroundImagePicker
         images={images}
-        current={background}
+        current={current}
         onChange={onChange}
       />
       {imageElements}
@@ -26,9 +37,8 @@ export const Background = ({ images, background, onChange }) => {
 };
 
 const BackgroundImage = ({ image, opacity }) => (
-  <Image
+  <StyledImage
     imgStyle={{ userSelect: "none" }}
-    className={styles.backgroundImage}
     fluid={image}
     style={{ position: "absolute", opacity }}
   />
@@ -37,9 +47,9 @@ const BackgroundImage = ({ image, opacity }) => (
 const BackgroundImagePicker = ({ images, current, onChange }) => {
   const controls = images.map(({ name }) => {
     return (
-      <div key={name} onClick={() => onChange(name)}>
+      <button key={name} onClick={() => onChange(name)}>
         {name === current ? "Selected" : "Not selected"}
-      </div>
+      </button>
     );
   });
 

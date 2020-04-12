@@ -1,22 +1,21 @@
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import React from "react"
-import SEO from "../components/seo"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import React from "react";
+import SEO from "../components/seo";
+import { graphql } from "gatsby";
 
 const ProjectsPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
     </Layout>
-  )
-}
+  );
+};
 
-export default ProjectsPage
+export default ProjectsPage;
 
 export const pageQuery = graphql`
   query {
@@ -41,4 +40,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

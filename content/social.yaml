@@ -1,15 +1,15 @@
 - name: GitHub
   iconId: github
-  link: https://www.github.com/timphillips/
+  url: https://www.github.com/timphillips/
 - name: Instagram
   iconId: instagram
-  link: https://www.instagram.com/tim.phillips/
+  url: https://www.instagram.com/tim.phillips/
 - name: LinkedIn
   iconId: linkedin
-  link: https://www.linkedin.com/in/timdphillips/
+  url: https://www.linkedin.com/in/timdphillips/
 - name: Goodreads
   iconId: goodreads
-  link: https://www.goodreads.com/user/show/13370091-tim
+  url: https://www.goodreads.com/user/show/13370091-tim
 - name: Strava
   iconId: strava
-  link: https://www.strava.com/athletes/timphillips
+  url: https://www.strava.com/athletes/timphillips
