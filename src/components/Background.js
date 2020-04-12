@@ -44,16 +44,45 @@ const BackgroundImage = ({ image, opacity }) => (
   />
 );
 
+const StyledUnorderedList = styled.ol`
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100px;
+`;
+
+const StyledListItem = styled.li`
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 3px solid ${props => props.theme.color.main};
+  background-color: ${props =>
+    props.active ? props.theme.color.main : "rgba(0, 0, 0, 0)"};
+`;
+
 const BackgroundImagePicker = ({ images, current, onChange }) => {
   const controls = images.map(({ name }) => {
+    console.log(current === name);
     return (
-      <button key={name} onClick={() => onChange(name)}>
-        {name === current ? "Selected" : "Not selected"}
-      </button>
+      <StyledListItem key={name}>
+        <StyledButton
+          active={current === name}
+          onClick={() => onChange(name)}
+        ></StyledButton>
+      </StyledListItem>
     );
   });
 
-  return <>{controls}</>;
+  return <StyledUnorderedList>{controls}</StyledUnorderedList>;
 };
 
 export default BackgroundImagePicker;

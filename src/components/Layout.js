@@ -1,10 +1,19 @@
 import { dark, light } from "../assets/theme";
 import { graphql, useStaticQuery } from "gatsby";
+import styled, { ThemeProvider } from "styled-components";
 
 import { Background } from "../components/Background";
 import Nav from "../components/Nav";
 import React from "react";
-import { ThemeProvider } from "styled-components";
+
+const LayoutFrame = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Quando", serif;
+  max-width: 1200px;
+  padding-left: 30px;
+  padding-right: 30px;
+`;
 
 const Layout = ({ children, initialBackground }) => {
   const { backgrounds } = useStaticQuery(graphql`
@@ -35,16 +44,7 @@ const Layout = ({ children, initialBackground }) => {
     .theme;
 
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        fontFamily: ["Quando", "serif"],
-        maxWidth: 1200,
-        paddingLeft: 30,
-        paddingRight: 30
-      }}
-    >
+    <LayoutFrame>
       <ThemeProvider theme={theme === "light" ? light : dark}>
         <header>
           <Nav state={{ background }} />
@@ -55,13 +55,8 @@ const Layout = ({ children, initialBackground }) => {
           images={backgrounds.edges.map(b => b.node)}
           onChange={setBackground}
         />
-        {/* <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer> */}
       </ThemeProvider>
-    </div>
+    </LayoutFrame>
   );
 };
 

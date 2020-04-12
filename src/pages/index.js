@@ -19,7 +19,10 @@ const Subtitle = styled.h2`
 `;
 
 const HomePage = ({ location }) => (
-  <Layout location={location} initialBackground={location.state.background}>
+  <Layout
+    location={location}
+    initialBackground={location.state && location.state.background}
+  >
     <SEO title="Home" />
     <Title>Tim Phillips</Title>
     <Subtitle>full stack software developer</Subtitle>
