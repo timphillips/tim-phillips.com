@@ -1,60 +1,45 @@
-import { dark, light } from "../assets/theme";
-import { graphql, useStaticQuery } from "gatsby";
+import { dark, light, opaque } from "../assets/theme";
 import styled, { ThemeProvider } from "styled-components";
 
-import { Background } from "../components/Background";
-import Nav from "../components/Nav";
+import Header from "./Header";
 import React from "react";
+import { Reset } from "styled-reset";
 
 const LayoutFrame = styled.div`
-  margin-left: auto;
-  margin-right: auto;
   font-family: "Quando", serif;
-  max-width: 1200px;
-  padding-left: 30px;
-  padding-right: 30px;
+  margin: 30px;
+  min-height: calc(100vh - 60px);
+  background-color: ${props => props.backgroundColor};
 `;
 
-const Layout = ({ children, initialBackground }) => {
-  const { backgrounds } = useStaticQuery(graphql`
-    query {
-      backgrounds: allBackgroundsYaml {
-        edges {
-          node {
-            name
-            theme
-            image {
-              childImageSharp {
-                fluid(maxWidth: 4000, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+const StyledMain = styled.main`
+  margin-left: 20px;
+  margin-right: 20px;
+`;
 
-  const [background, setBackground] = React.useState(
-    initialBackground || backgrounds.edges[0].node.name
-  );
-
-  const theme = backgrounds.edges.find(b => b.node.name === background)?.node
-    .theme;
+const Layout = ({ children, theme: themeId, doNotSetBackgroundColor }) => {
+  let theme;
+  switch (themeId) {
+    case "dark":
+      theme = dark;
+      break;
+    case "opaque":
+      theme = opaque;
+      break;
+    default:
+      theme = light;
+      break;
+  }
 
   return (
-    <LayoutFrame>
-      <ThemeProvider theme={theme === "light" ? light : dark}>
-        <header>
-          <Nav state={{ background }} />
-        </header>
-        <main>{children}</main>
-        <Background
-          current={background}
-          images={backgrounds.edges.map(b => b.node)}
-          onChange={setBackground}
-        />
+    <LayoutFrame
+      backgroundColor={!doNotSetBackgroundColor && theme.color.background}
+    >
+      <Reset />
+      <ThemeProvider theme={theme}>
+        <Header />
+        <StyledMain>{children}</StyledMain>
+        {/* <footer>Add a footer?</footer> */}
       </ThemeProvider>
     </LayoutFrame>
   );

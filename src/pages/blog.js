@@ -2,7 +2,7 @@ import { Link, graphql } from "gatsby";
 
 import BackgroundImage from "../components/Background";
 import Layout from "../components/Layout";
-import Nav from "../components/Nav";
+import { Panel } from "../components/Panel";
 import React from "react";
 import SEO from "../components/SEO";
 
@@ -10,34 +10,36 @@ const BlogPage = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} initialBackground={location.state.background}>
+    <Layout location={location} theme="dark">
       <SEO title="All posts" />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-              // style={{
-              //   marginBottom: rhythm(1 / 4),
-              // }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt
-                }}
-              />
-            </section>
-          </article>
-        );
-      })}
+      <Panel>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <article key={node.fields.slug}>
+              <header>
+                <h3
+                // style={{
+                //   marginBottom: rhythm(1 / 4),
+                // }}
+                >
+                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>{node.frontmatter.date}</small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt
+                  }}
+                />
+              </section>
+            </article>
+          );
+        })}
+      </Panel>
     </Layout>
   );
 };

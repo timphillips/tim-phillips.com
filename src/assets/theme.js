@@ -8,6 +8,14 @@ export const light = {
 export const dark = {
   name: "dark",
   color: {
-    main: "#555"
+    main: "#37474f",
+    background: "#eae7dc"
+  }
+};
+
+export const opaque = {
+  name: "opaque",
+  color: {
+    main: "white"
   }
 };

@@ -1,32 +1,53 @@
+import { Background, BackgroundImagePicker } from "../components/Background";
+import { graphql, useStaticQuery } from "gatsby";
+
 import Layout from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
-import { light } from "../assets/theme";
-import styled from "styled-components";
 
-const Title = styled.h1`
-  margin: 40px 0 0 0;
-  color: ${props => props.theme.color.main};
-  font-size: 75px;
-  text-shadow: ${props => (props.theme === light ? "2px 2px #999" : undefined)};
-`;
+const HomePage = ({ location }) => {
+  const { backgrounds } = useStaticQuery(graphql`
+    query {
+      backgrounds: allBackgroundsYaml {
+        edges {
+          node {
+            name
+            theme
+            image {
+              childImageSharp {
+                fluid(maxWidth: 4000, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
-const Subtitle = styled.h2`
-  margin: 20px 0 0 0;
-  color: ${props => props.theme.color.main};
-  font-size: 30px;
-  font-weight: 400;
-`;
+  const [background, setBackground] = React.useState(
+    backgrounds.edges[0].node.name
+  );
 
-const HomePage = ({ location }) => (
-  <Layout
-    location={location}
-    initialBackground={location.state && location.state.background}
-  >
-    <SEO title="Home" />
-    <Title>Tim Phillips</Title>
-    <Subtitle>full stack software developer</Subtitle>
-  </Layout>
-);
+  const theme = backgrounds.edges.find(b => b.node.name === background)?.node
+    .theme;
+
+  return (
+    <Layout location={location} theme={theme} doNotSetBackgroundColor>
+      <SEO title="Home" />
+      <BackgroundImagePicker
+        images={backgrounds.edges.map(b => b.node)}
+        current={background}
+        onChange={setBackground}
+      />
+      <Background
+        current={background}
+        images={backgrounds.edges.map(b => b.node)}
+        onChange={setBackground}
+      />
+    </Layout>
+  );
+};
 
 export default HomePage;

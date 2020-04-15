@@ -20,16 +20,19 @@ const svgIconsById = {
 const SocialIconListItem = styled.li`
   list-style: none;
   padding: 0;
+  margin-bottom: 10px;
   transition: opacity 0.6s ease 0s;
+  display: flex;
+  align-items: flex-end;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 `;
 
 const SocialIconLink = styled.a`
   color: ${props => props.theme.color.main};
-  padding-left: 20px;
+  margin-left: 20px;
 `;
 
 const SocialLink = ({ iconId, name, url }) => {

@@ -5,5 +5,5 @@
   theme: dark
   image: assets/backgrounds/background-2.jpg
 - name: background3
-  theme: dark
+  theme: opaque
   image: assets/backgrounds/background-3.jpg
