@@ -1,0 +1,68 @@
+- name: snapshots
+  color:
+    main: rgb(149, 165, 166)
+    background: rgba(149, 165, 166, 0.1)
+  description: An art project that documents my travels around the world.
+  source: https://github.com/timphillips/snapshots
+  tech:
+    - RxJs
+    - Vanilla JS
+  url: http://snapshots.tim-phillips.com/
+  year: 2020
+- name: tim-phillips.com
+  color:
+    main: rgb(22, 160, 133)
+    background: rgba(22, 160, 133, 0.05);
+  description: >
+    I redesign my personal website once a year or so - usually to learn about a new technology or framework.
+    The latest version is built with Gastby, React and styled components.
+  source: https://github.com/timphillips/tim-phillips.com
+  tech:
+    - Gastby
+    - styled-components
+    - React
+  url: https://www.tim-phillips.com
+  year: 2020
+- name: Scottish BAME Writers Network
+  color:
+    main: rgb(241, 196, 15)
+    background: rgba(241, 196, 15, 0.1)
+  description: Volunteer project to setup and run the Scottish BAME Writers Network website. Wordpress...
+  tech:
+    - Web Hosting
+    - WordPress
+  url: https://www.scottishbamewritersnetwork.org
+  year: 2020
+- name: lock
+  color:
+    main: rgb(192, 57, 43)
+    background: rgba(192, 57, 43, 0.08)
+  description: An interactive single-dial combination lock built with rxjs.
+  source: https://github.com/timphillips/lock
+  tech:
+    - RxJs
+    - SVG
+  url: http://lock.tim-phillips.com/
+  year: 2019
+- name: travel map
+  color:
+    main: rgb(52, 73, 94)
+    background: rgba(52, 73, 94, 0.1)
+  description: A simple React application that displays a world map with location markers.
+  source: https://github.com/timphillips/travel-map
+  tech:
+    - React
+  url: https://map.tim-phillips.com/
+  year: 2018
+- name: parallax images
+  color:
+    main: rgb(230, 126, 34)
+    background: rgba(230, 126, 34, 0.1)
+  description: Two-and-a-half-dimensional images created from still photographs.
+  source: https://github.com/timphillips/parallax
+  tech:
+    - Parallax.js
+    - Gastby
+    - Photo Editing
+  url: https://parallax.tim-phillips.com/
+  year: 2017

@@ -1,17 +1,32 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 import Layout from "../components/Layout";
+import Paragraph from "../components/Paragraph";
 import React from "react";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
+const Content = styled.section`
+  margin-top: 40px;
+`;
+
 const Project = styled.li`
+  cursor: pointer;
   border-radius: 2px;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-  min-height: 300px;
+  min-height: 150px;
+  transition: background-color 0.5s, box-shadow 0.5s;
+  border-left: 3px solid ${props => props.color.main};
+
+  &::selection {
+    color: black;
+    background-color: white;
+  }
+
+  &:hover {
+    background-color: ${props => props.color.background};
+  }
 `;
 
 const ProjectHeader = styled.div`
@@ -38,61 +53,55 @@ const ProjectsList = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 30px;
-  margin: 0 200px;
   padding: 50px 0;
-
-  @media (min-width: 820px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (min-width: 2000px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
 `;
 
 const ProjectDescription = styled.div`
   font-family: Arial;
+  line-height: 20px;
 `;
 
 const ProjectsPage = ({ data, location }) => {
-  console.log(data);
   return (
     <Layout location={location} theme="dark">
       <SEO title="About" />
-      <ProjectsList>
-        {data.projects.edges.map(({ node }) => (
-          <Project key={node.id}>
-            <ProjectHeader>
-              <ProjectTitle>{node.name}</ProjectTitle>
-              <ProjectLinks>
-                {node.source && (
-                  <ProjectExternalLink
-                    href={node.source}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    title={`Source for ${node.name} on GitHub`}
-                  >
-                    <FaGithub />
-                  </ProjectExternalLink>
-                )}
-                {node.url && (
-                  <ProjectExternalLink
-                    href={node.url}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    title={`${node.name}`}
-                  >
-                    <FaExternalLinkAlt />
-                  </ProjectExternalLink>
-                )}
-              </ProjectLinks>
-            </ProjectHeader>
-            <ProjectDescription>{node.description}</ProjectDescription>
-          </Project>
-        ))}
-      </ProjectsList>
+      <Content>
+        <Paragraph>
+          These are some small projects I've worked on in my free time.
+        </Paragraph>
+        <ProjectsList>
+          {data.projects.edges.map(({ node }) => (
+            <Project key={node.id} color={node.color}>
+              <ProjectHeader>
+                <ProjectTitle>{node.name}</ProjectTitle>
+                <ProjectLinks>
+                  {node.source && (
+                    <ProjectExternalLink
+                      href={node.source}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      title={`Source for ${node.name} on GitHub`}
+                    >
+                      <FaGithub />
+                    </ProjectExternalLink>
+                  )}
+                  {node.url && (
+                    <ProjectExternalLink
+                      href={node.url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      title={`${node.name}`}
+                    >
+                      <FaExternalLinkAlt />
+                    </ProjectExternalLink>
+                  )}
+                </ProjectLinks>
+              </ProjectHeader>
+              <ProjectDescription>{node.description}</ProjectDescription>
+            </Project>
+          ))}
+        </ProjectsList>
+      </Content>
     </Layout>
   );
 };
@@ -109,6 +118,10 @@ export const pageQuery = graphql`
     projects: allProjectsYaml {
       edges {
         node {
+          color {
+            background
+            main
+          }
           description
           id
           name

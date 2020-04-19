@@ -1,31 +1,12 @@
 import { Background, BackgroundImagePicker } from "../components/Background";
-import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
+import { graphql } from "gatsby";
 
-const HomePage = ({ location }) => {
-  const { backgrounds } = useStaticQuery(graphql`
-    query {
-      backgrounds: allBackgroundsYaml {
-        edges {
-          node {
-            name
-            theme
-            image {
-              childImageSharp {
-                fluid(maxWidth: 4000, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
+const HomePage = ({ data, location }) => {
+  const { backgrounds } = data;
   const [background, setBackground] = React.useState(
     backgrounds.edges[0].node.name
   );
@@ -51,3 +32,23 @@ const HomePage = ({ location }) => {
 };
 
 export default HomePage;
+
+export const pageQuery = graphql`
+  query {
+    backgrounds: allBackgroundsYaml {
+      edges {
+        node {
+          name
+          theme
+          image {
+            childImageSharp {
+              fluid(maxWidth: 4000, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

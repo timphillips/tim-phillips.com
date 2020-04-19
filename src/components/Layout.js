@@ -9,12 +9,12 @@ const LayoutFrame = styled.div`
   font-family: "Quando", serif;
   margin: 30px;
   min-height: calc(100vh - 60px);
-  background-color: ${props => props.backgroundColor};
+  // background-color: ${props => props.backgroundColor};
 `;
 
 const StyledMain = styled.main`
-  margin-left: 20px;
-  margin-right: 20px;
+  max-width: 800px;
+  margin: auto;
 `;
 
 const Layout = ({ children, theme: themeId, doNotSetBackgroundColor }) => {

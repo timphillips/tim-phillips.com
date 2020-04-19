@@ -32,7 +32,7 @@ const SocialIconListItem = styled.li`
 
 const SocialIconLink = styled.a`
   color: ${props => props.theme.color.main};
-  margin-left: 20px;
+  margin-left: 10px;
 `;
 
 const SocialLink = ({ iconId, name, url }) => {

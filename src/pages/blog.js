@@ -1,8 +1,6 @@
 import { Link, graphql } from "gatsby";
 
-import BackgroundImage from "../components/Background";
 import Layout from "../components/Layout";
-import { Panel } from "../components/Panel";
 import React from "react";
 import SEO from "../components/SEO";
 
@@ -12,7 +10,7 @@ const BlogPage = ({ data, location }) => {
   return (
     <Layout location={location} theme="dark">
       <SEO title="All posts" />
-      <Panel>
+      <div>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
@@ -39,7 +37,7 @@ const BlogPage = ({ data, location }) => {
             </article>
           );
         })}
-      </Panel>
+      </div>
     </Layout>
   );
 };

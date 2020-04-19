@@ -1,33 +1,135 @@
-import { Panel, PanelLeft } from "../components/Panel";
-
+import Image from "gatsby-image";
 import Layout from "../components/Layout";
+import Paragraph from "../components/Paragraph";
 import React from "react";
 import SEO from "../components/SEO";
+import styled from "styled-components";
 
-const AboutPage = ({ location }) => {
+const Content = styled.section`
+  margin-top: 75px;
+  max-width: 800px;
+  color: ${props => props.theme.color.main};
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2em;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Bold = styled.span`
+  font-weight: 700;
+`;
+
+const ProfilePic = styled(Image)`
+  margin: auto;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+`;
+
+const LinkText = styled.span`
+  color: ${props => props.theme.color.main};
+  text-decoration: underline dashed ${props => props.theme.color.main};
+  text-underline-position: under;
+`;
+
+const AboutPage = ({ data, location }) => {
   return (
     <Layout location={location} theme="dark">
       <SEO title="About" />
-      <Panel>
-        <PanelLeft>
-          <p>
-            <b>Hello.</b> I'm a <b>full stack software developer</b>{" "}
-            specializing in the construction of <b>enterprise-grade</b> web
-            applications.
-          </p>
-          <p>Blah blah blah</p>
-          <p>
+      <Content>
+        <div>
+          <Paragraph>
+            I'm a <Bold>full stack software developer</Bold> specializing in the
+            construction of <Bold>enterprise-grade</Bold> web applications.
+          </Paragraph>
+          <Paragraph>
             Currently, I'm working as a senior developer on the{" "}
-            <b>Executive Tools</b> team at{" "}
-            <a href="https://www.pandell.com">Pandell</a>. Prior to that, I
-            spent a number of years as the technical lead for Pandell's flagship
-            accounting product, <a href="Pandell JV">Pandell JV</a>.
-          </p>
-          <p>I'm based in Edinburgh, Scotland.</p>
-        </PanelLeft>
-      </Panel>
+            <Bold>Executive Tools</Bold> team at{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Pandell"
+              href="https://www.pandell.com"
+            >
+              <LinkText>Pandell</LinkText>
+            </Link>
+            . Prior to that, I spent a number of years as the technical lead for
+            Pandell's flagship accounting product,{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Pandell JV"
+              href="http://www.pandelljv.com/"
+            >
+              <LinkText>Pandell JV</LinkText>
+            </Link>
+            .
+          </Paragraph>
+
+          <Paragraph>
+            Outside of work, you'll find me{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Travel Map"
+              href="https://map.tim-phillips.com/"
+            >
+              <LinkText>travelling</LinkText>
+            </Link>
+            ,{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Instagram"
+              href="https://www.instagram.com/tim.phillips/"
+            >
+              <LinkText>photography-ing</LinkText>
+            </Link>
+            ,{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Strava"
+              href="https://www.strava.com/athletes/21223598"
+            >
+              <LinkText>running</LinkText>
+            </Link>
+            ,{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Goodreads"
+              href="https://www.goodreads.com/user/show/13370091-tim"
+            >
+              <LinkText>reading</LinkText>
+            </Link>
+            , or playing music.
+          </Paragraph>
+        </div>
+        <ProfilePic
+          style={{ width: 250, borderRadius: 125 }}
+          fluid={data.profilePic.childImageSharp.fluid}
+          alt="Tim"
+        />
+      </Content>
     </Layout>
   );
 };
 
 export default AboutPage;
+
+export const pageQuery = graphql`
+  query {
+    profilePic: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 4000, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
