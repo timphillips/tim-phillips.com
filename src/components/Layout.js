@@ -1,4 +1,4 @@
-import { dark, light, opaque } from "../assets/theme";
+import { dark, light } from "../assets/theme";
 import styled, { ThemeProvider } from "styled-components";
 
 import Header from "./Header";
@@ -6,10 +6,10 @@ import React from "react";
 import { Reset } from "styled-reset";
 
 const LayoutFrame = styled.div`
-  font-family: "Quando", serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   margin: 30px;
   min-height: calc(100vh - 60px);
-  // background-color: ${props => props.backgroundColor};
 `;
 
 const StyledMain = styled.main`
@@ -17,14 +17,11 @@ const StyledMain = styled.main`
   margin: auto;
 `;
 
-const Layout = ({ children, theme: themeId, doNotSetBackgroundColor }) => {
+const Layout = ({ children, theme: themeId }) => {
   let theme;
   switch (themeId) {
     case "dark":
       theme = dark;
-      break;
-    case "opaque":
-      theme = opaque;
       break;
     default:
       theme = light;
@@ -32,9 +29,7 @@ const Layout = ({ children, theme: themeId, doNotSetBackgroundColor }) => {
   }
 
   return (
-    <LayoutFrame
-      backgroundColor={!doNotSetBackgroundColor && theme.color.background}
-    >
+    <LayoutFrame>
       <Reset />
       <ThemeProvider theme={theme}>
         <Header />

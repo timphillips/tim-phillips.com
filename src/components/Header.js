@@ -2,7 +2,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import { Link } from "gatsby";
 import React from "react";
-import { opaque } from "../assets/theme";
 import styled from "styled-components";
 
 const activeClassName = "link-active";
@@ -17,12 +16,13 @@ const Title = styled.h1`
 `;
 
 const StyledHeader = styled.header`
-  margin-bottom: 15px;
+  font-family: "Quando", serif;
+  margin: 0 0 15px 0;
 `;
 
 const NavLinkListItem = styled.li`
   list-style: none;
-  margin-left: 40px;
+  margin-left: 60px;
   display: flex;
   align-items: flex-end;
 `;
@@ -35,6 +35,10 @@ const NavArrow = styled.div`
   border-bottom: 5px solid ${props => props.theme.color.main};
   color: ${props => props.theme.color.main};
   visibility: hidden;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -60,14 +64,11 @@ const StyledNav = styled.nav`
   max-width: 800px;
   display: flex;
   border-bottom: 3px solid ${props => props.theme.color.main};
-  padding: ${props =>
-    props.theme === opaque ? "20px 20px 0 20px" : "20px 0 0 0"};
+  padding: 20px 0 0 0;
   margin: auto;
   flex: 1;
   display: flex;
   justify-content: space-between;
-  background-color: ${props =>
-    props.theme === opaque ? "rgba(0, 0, 0, 0.6)" : undefined};
 `;
 
 const NavLinks = styled.div`
@@ -76,6 +77,11 @@ const NavLinks = styled.div`
   margin: 0;
   justify-content: flex-end;
   flex: 1;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 `;
 
 // const SocialLinks = styled.div`

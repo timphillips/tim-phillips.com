@@ -15,7 +15,7 @@ const HomePage = ({ data, location }) => {
     .theme;
 
   return (
-    <Layout location={location} theme={theme} doNotSetBackgroundColor>
+    <Layout location={location} theme={theme}>
       <SEO title="Home" />
       <BackgroundImagePicker
         images={backgrounds.edges.map(b => b.node)}
@@ -40,6 +40,8 @@ export const pageQuery = graphql`
         node {
           name
           theme
+          style
+          position
           image {
             childImageSharp {
               fluid(maxWidth: 4000, quality: 100) {

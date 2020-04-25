@@ -12,10 +12,3 @@ export const dark = {
     background: "#eae7dc"
   }
 };
-
-export const opaque = {
-  name: "opaque",
-  color: {
-    main: "white"
-  }
-};

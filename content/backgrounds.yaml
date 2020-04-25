@@ -1,9 +1,20 @@
-- name: background1
+- name: background-skye
   theme: light
-  image: assets/backgrounds/background-1.jpg
-- name: background2
+  image: assets/backgrounds/background-skye.jpg
+- name: background-ozette
   theme: dark
-  image: assets/backgrounds/background-2.jpg
-- name: background3
-  theme: opaque
-  image: assets/backgrounds/background-3.jpg
+  image: assets/backgrounds/background-ozette.jpg
+  position: 45% 50%
+- name: background-zion
+  theme: dark
+  image: assets/backgrounds/background-zion.jpg
+  style: inset
+  position: 90% 60%
+- name: background-iceland
+  theme: dark
+  image: assets/backgrounds/background-iceland.jpg
+- name: background-redwood
+  theme: dark
+  image: assets/backgrounds/background-redwood.jpg
+  style: inset
+  position: center 90%

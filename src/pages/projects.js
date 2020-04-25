@@ -1,7 +1,7 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 import Layout from "../components/Layout";
-import Paragraph from "../components/Paragraph";
+import { Paragraph } from "../components/Paragraph";
 import React from "react";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
@@ -57,8 +57,18 @@ const ProjectsList = styled.ul`
 `;
 
 const ProjectDescription = styled.div`
-  font-family: Arial;
   line-height: 20px;
+`;
+
+const Tech = styled.span`
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px 5px;
+  margin: 0 5px 5px 0;
+  font-weight: 500;
+  font-size: 11px;
+  color: #fff;
+  white-space: nowrap;
 `;
 
 const ProjectsPage = ({ data, location }) => {
@@ -67,7 +77,8 @@ const ProjectsPage = ({ data, location }) => {
       <SEO title="About" />
       <Content>
         <Paragraph>
-          These are some small projects I've worked on in my free time.
+          This is a collection of small projects and experiments I've done in my
+          free time.
         </Paragraph>
         <ProjectsList>
           {data.projects.edges.map(({ node }) => (
@@ -98,6 +109,9 @@ const ProjectsPage = ({ data, location }) => {
                 </ProjectLinks>
               </ProjectHeader>
               <ProjectDescription>{node.description}</ProjectDescription>
+              {node.tech.map(tech => (
+                <Tech key={tech}>{tech}</Tech>
+              ))}
             </Project>
           ))}
         </ProjectsList>
@@ -128,6 +142,7 @@ export const pageQuery = graphql`
           source
           url
           year
+          tech
         }
       }
     }

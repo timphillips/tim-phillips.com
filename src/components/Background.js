@@ -4,10 +4,12 @@ import styled from "styled-components";
 
 const BackgroundImage = styled(Image)`
   position: fixed;
-  top: 30px;
+  top: ${props => (props.imageStyle === "inset" ? `200px` : "30px")};
   left: 30px;
   width: calc(100% - 60px);
-  height: calc(100% - 60px);
+  height: calc(
+    100% - ${props => (props.imageStyle === "inset" ? `${300}px` : "60px")}
+  );
   z-index: -1;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -16,14 +18,15 @@ const BackgroundImage = styled(Image)`
 export const Background = ({ images, current }) => {
   return (
     <div>
-      {images.map(({ name, image }) => (
+      {images.map(({ name, image, style, position }) => (
         <BackgroundImage
           key={name}
+          imageStyle={style}
           fluid={image.childImageSharp.fluid}
           style={{ position: "fixed", opacity: name === current ? 1 : 0 }}
           imgStyle={{
             userSelect: "none",
-            objectPosition: "center 30%"
+            objectPosition: position || "center 30%"
           }}
         />
       ))}

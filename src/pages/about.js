@@ -1,17 +1,19 @@
+import { LargerParagraph, Paragraph } from "../components/Paragraph";
+
 import Image from "gatsby-image";
 import Layout from "../components/Layout";
-import Paragraph from "../components/Paragraph";
 import React from "react";
 import SEO from "../components/SEO";
 import styled from "styled-components";
 
 const Content = styled.section`
+  font-family: "Quando", serif;
   margin-top: 75px;
   max-width: 800px;
   color: ${props => props.theme.color.main};
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2em;
+  gap: 4em;
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
@@ -23,7 +25,8 @@ const Bold = styled.span`
 `;
 
 const ProfilePic = styled(Image)`
-  margin: auto;
+  width: 270px;
+  border-radius: 2px;
 `;
 
 const Link = styled.a`
@@ -42,10 +45,10 @@ const AboutPage = ({ data, location }) => {
       <SEO title="About" />
       <Content>
         <div>
-          <Paragraph>
+          <LargerParagraph>
             I'm a <Bold>full stack software developer</Bold> specializing in the
             construction of <Bold>enterprise-grade</Bold> web applications.
-          </Paragraph>
+          </LargerParagraph>
           <Paragraph>
             Currently, I'm working as a senior developer on the{" "}
             <Bold>Executive Tools</Bold> team at{" "}
@@ -107,14 +110,19 @@ const AboutPage = ({ data, location }) => {
             >
               <LinkText>reading</LinkText>
             </Link>
-            , or playing music.
+            , playing music, or spending time with my{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Goodreads"
+              href="http://alycia-pirmohamed.com/"
+            >
+              <LinkText>partner</LinkText>
+            </Link>
+            .
           </Paragraph>
         </div>
-        <ProfilePic
-          style={{ width: 250, borderRadius: 125 }}
-          fluid={data.profilePic.childImageSharp.fluid}
-          alt="Tim"
-        />
+        <ProfilePic fluid={data.profilePic.childImageSharp.fluid} alt="Tim" />
       </Content>
     </Layout>
   );
