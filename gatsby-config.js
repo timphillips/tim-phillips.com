@@ -5,10 +5,10 @@ module.exports = {
       name: `Tim Phillips`,
       summary: `Full Stack Software Developer`
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Personal homepage of Tim Phillips`,
+    siteUrl: `https://www.tim-phillips.com`,
     social: {
-      twitter: `kylemathews`
+      twitter: `tim__phillips`
     }
   },
   plugins: [
@@ -75,13 +75,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `tim-phillips.com`,
+        short_name: `Tim Phillips`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
+        icon: `content/assets/favicon.ico`
       }
     },
     `gatsby-plugin-react-helmet`

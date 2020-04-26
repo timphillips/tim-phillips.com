@@ -6,10 +6,12 @@ import {
   FaStrava
 } from "react-icons/fa";
 
+import { MdEmail } from "react-icons/md";
 import React from "react";
 import styled from "styled-components";
 
 const svgIconsById = {
+  email: MdEmail,
   github: FaGithub,
   goodreads: FaGoodreads,
   instagram: FaInstagram,
@@ -20,19 +22,23 @@ const svgIconsById = {
 const SocialIconListItem = styled.li`
   list-style: none;
   padding: 0;
-  margin-bottom: 10px;
   transition: opacity 0.6s ease 0s;
   display: flex;
   align-items: flex-end;
+  opacity: 0.4;
+  margin-left: 15px;
 
   &:hover {
-    opacity: 0.6;
+    opacity: 1;
+  }
+
+  &:first-of-type {
+    margin-left: 0;
   }
 `;
 
 const SocialIconLink = styled.a`
-  color: ${props => props.theme.color.main};
-  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.7);
 `;
 
 const SocialLink = ({ iconId, name, url }) => {
@@ -45,7 +51,7 @@ const SocialLink = ({ iconId, name, url }) => {
         target="_blank"
         title={name}
       >
-        <Icon size={24} />
+        <Icon size={19} />
       </SocialIconLink>
     </SocialIconListItem>
   );

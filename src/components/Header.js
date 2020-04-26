@@ -1,5 +1,3 @@
-import { graphql, useStaticQuery } from "gatsby";
-
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
@@ -17,7 +15,8 @@ const Title = styled.h1`
 
 const StyledHeader = styled.header`
   font-family: "Quando", serif;
-  margin: 0 0 15px 0;
+  margin: 60px 0 10px 0;
+  display: flex;
 `;
 
 const NavLinkListItem = styled.li`
@@ -61,11 +60,8 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledNav = styled.nav`
-  max-width: 800px;
   display: flex;
   border-bottom: 3px solid ${props => props.theme.color.main};
-  padding: 20px 0 0 0;
-  margin: auto;
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -74,7 +70,6 @@ const StyledNav = styled.nav`
 const NavLinks = styled.div`
   display: flex;
   padding: 0;
-  margin: 0;
   justify-content: flex-end;
   flex: 1;
 
@@ -83,12 +78,6 @@ const NavLinks = styled.div`
     align-items: flex-end;
   }
 `;
-
-// const SocialLinks = styled.div`
-//   display: flex;
-//   padding: 0;
-//   margin: 0;
-// `;
 
 const NavLink = ({ children, state, to }) => (
   <NavLinkListItem>
@@ -100,20 +89,6 @@ const NavLink = ({ children, state, to }) => (
 );
 
 const Header = ({ state }) => {
-  const { social } = useStaticQuery(graphql`
-    query {
-      social: allSocialYaml {
-        edges {
-          node {
-            name
-            iconId
-            url
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <StyledHeader>
       <StyledNav>
@@ -131,11 +106,6 @@ const Header = ({ state }) => {
             projects
           </NavLink>
         </NavLinks>
-        {/* <SocialLinks>
-          {social.edges.map(({ node }) => (
-            <SocialLink key={node.name} {...node} />
-          ))}
-        </SocialLinks> */}
       </StyledNav>
     </StyledHeader>
   );
