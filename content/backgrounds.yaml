@@ -1,6 +1,7 @@
 - name: background-skye
   theme: light
   image: assets/backgrounds/background-skye.jpg
+  position: 53% 60%
 - name: background-ozette
   theme: dark
   image: assets/backgrounds/background-ozette.jpg
