@@ -5,13 +5,12 @@ import SocialLink from "../components/SocialLink";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
+  grid-area: footer;
   display: flex;
-  justify-content: flex-end;
-  padding: 0;
-  margin: 1px 0;
-  height: 30px;
   align-items: center;
-  margin: auto;
+  justify-content: center;
+  padding: 0;
+  height: 30px;
 `;
 
 const Footer = () => {

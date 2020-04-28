@@ -11,14 +11,18 @@ const LayoutFrame = styled.div`
     Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   min-height: 100vh;
   margin: auto;
-  padding: 0 20px;
+  padding: 0 50px;
   max-width: 800px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
 `;
 
 const StyledMain = styled.main`
-  flex: 1;
+  grid-area: main;
 `;
 
 const Layout = ({ children, theme: themeId }) => {

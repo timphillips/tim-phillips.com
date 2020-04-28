@@ -7,7 +7,6 @@ import SEO from "../components/SEO";
 import styled from "styled-components";
 
 const Content = styled.section`
-  font-family: "Quando", serif;
   margin-top: 75px;
   max-width: 800px;
   color: ${props => props.theme.color.main};

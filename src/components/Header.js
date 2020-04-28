@@ -1,3 +1,5 @@
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { FiMenu } from "react-icons/fi";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
@@ -7,23 +9,26 @@ const activeClassName = "link-active";
 const Title = styled.h1`
   border-radius: 4px;
   letter-spacing: 2px;
-  color: ${props => props.theme.color.main};
   font-size: 35px;
   font-weight: 700;
   margin-bottom: 10px;
 `;
 
 const StyledHeader = styled.header`
+  grid-area: header;
   font-family: "Quando", serif;
   margin: 60px 0 10px 0;
-  display: flex;
+  color: ${props => props.theme.color.main};
 `;
 
 const NavLinkListItem = styled.li`
-  list-style: none;
   margin-left: 60px;
   display: flex;
   align-items: flex-end;
+
+  @media (max-width: 720px) {
+    margin-left: 0;
+  }
 `;
 
 const NavArrow = styled.div`
@@ -32,12 +37,7 @@ const NavArrow = styled.div`
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 5px solid ${props => props.theme.color.main};
-  color: ${props => props.theme.color.main};
   visibility: hidden;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
 `;
 
 const StyledLink = styled(Link)`
@@ -60,51 +60,72 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledNav = styled.nav`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   border-bottom: 3px solid ${props => props.theme.color.main};
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-`;
+  overflow: hidden;
+  transition: height 0.4s;
 
-const NavLinks = styled.div`
-  display: flex;
-  padding: 0;
-  justify-content: flex-end;
-  flex: 1;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: flex-end;
+  @media (max-width: 720px) {
+    grid-template-rows: auto 45px;
+    height: ${props => (props.open ? "90px" : "44px")};
   }
 `;
 
-const NavLink = ({ children, state, to }) => (
+const NavLinks = styled.ol`
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+`;
+
+const MenuButton = styled.button`
+  outline: none;
+  border: none;
+  background: transparent;
+  color: ${props => props.theme.color.main};
+  display: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 20px;
+
+  @media (max-width: 720px) {
+    display: unset;
+  }
+`;
+
+const NavLink = ({ children, to }) => (
   <NavLinkListItem>
-    <StyledLink activeClassName={activeClassName} to={to} state={state}>
+    <StyledLink activeClassName={activeClassName} to={to}>
       <div>{children}</div>
       <NavArrow />
     </StyledLink>
   </NavLinkListItem>
 );
 
-const Header = ({ state }) => {
+const Header = () => {
+  const [open, setOpen] = React.useState();
+
+  const links = [
+    { label: "about", to: "/about" },
+    { label: "notes", to: "/blog" },
+    { label: "projects", to: "/projects" }
+  ];
+
   return (
     <StyledHeader>
-      <StyledNav>
-        <StyledLink to="/" state={state}>
+      <StyledNav open={open}>
+        <StyledLink to="/" style={{ alignItems: "flex-start" }}>
           <Title>Tim Phillips</Title>
         </StyledLink>
-        <NavLinks>
-          <NavLink to="/about" state={state}>
-            about
-          </NavLink>
-          <NavLink to="/blog" state={state}>
-            notes
-          </NavLink>
-          <NavLink to="/projects" state={state}>
-            projects
-          </NavLink>
+        <MenuButton onClick={() => setOpen(!open)}>
+          {open ? <AiOutlineCloseCircle size="35" /> : <FiMenu size="35" />}
+        </MenuButton>
+        <NavLinks open={open}>
+          {links.map(({ label, to }) => (
+            <NavLink key={to} to={to}>
+              {label}
+            </NavLink>
+          ))}
         </NavLinks>
       </StyledNav>
     </StyledHeader>

@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 const Content = styled.section`
   margin-top: 40px;
+  display: flex;
 `;
 
 const Project = styled.li`
@@ -30,6 +31,7 @@ const Project = styled.li`
 `;
 
 const ProjectHeader = styled.div`
+  font-family: "Quando", serif;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -53,7 +55,6 @@ const ProjectsList = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 30px;
-  padding: 50px 0;
 `;
 
 const ProjectDescription = styled.div`
@@ -76,9 +77,9 @@ const ProjectsPage = ({ data, location }) => {
     <Layout location={location} theme="dark">
       <SEO title="About" />
       <Content>
-        <Paragraph>
-          This is a collection of small projects and experiments I've done in my
-          free time.
+        <Paragraph style={{ width: 450, textAlign: "left", marginRight: 20 }}>
+          This is a collection of some of my personal projects and coding
+          experiments.
         </Paragraph>
         <ProjectsList>
           {data.projects.edges.map(({ node }) => (

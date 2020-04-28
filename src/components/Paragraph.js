@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Paragraph = styled.p`
+  font-family: "Quando", serif;
   margin-bottom: 20px;
   font-size: 14px;
   line-height: 28px;
@@ -12,6 +13,7 @@ export const Paragraph = styled.p`
 `;
 
 export const LargerParagraph = styled(Paragraph)`
+  font-family: "Quando", serif;
   font-size: 20px;
   line-height: 35px;
   padding: 20px;

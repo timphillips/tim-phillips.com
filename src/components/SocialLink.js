@@ -20,13 +20,12 @@ const svgIconsById = {
 };
 
 const SocialIconListItem = styled.li`
-  list-style: none;
   padding: 0;
   transition: opacity 0.6s ease 0s;
   display: flex;
   align-items: flex-end;
-  opacity: 0.4;
-  margin-left: 15px;
+  opacity: 0.7;
+  margin-left: 35px;
 
   &:hover {
     opacity: 1;
