@@ -4,21 +4,27 @@ import Layout from "../components/Layout";
 import { Paragraph } from "../components/Paragraph";
 import React from "react";
 import SEO from "../components/SEO";
+import SpiralSvg from "../assets/spiral.svg";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
-const Content = styled.section`
-  margin-top: 40px;
-  display: flex;
+const Project = styled.li`
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  grid-gap: 40px;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const Project = styled.li`
-  cursor: pointer;
+const ProjectContent = styled.div`
   border-radius: 2px;
   padding: 20px;
   min-height: 150px;
   transition: background-color 0.5s, box-shadow 0.5s;
   border-left: 3px solid ${props => props.color.main};
+  cursor: pointer;
 
   &::selection {
     color: black;
@@ -43,7 +49,7 @@ const ProjectTitle = styled.h3`
   font-weight: 700;
 `;
 
-const ProjectLinks = styled.div``;
+const ProjectLinks = styled.section``;
 
 const ProjectExternalLink = styled.a`
   color: ${props => props.theme.color.main};
@@ -53,8 +59,9 @@ const ProjectExternalLink = styled.a`
 
 const ProjectsList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1ft;
   grid-gap: 30px;
+  margin: 40px 0;
 `;
 
 const ProjectDescription = styled.div`
@@ -73,17 +80,33 @@ const Tech = styled.span`
 `;
 
 const ProjectsPage = ({ data, location }) => {
+  React.useEffect(() => {
+    for (const path of document.querySelectorAll("path")) {
+      path.style.strokeDashoffset = 0;
+    }
+  }, []);
+
   return (
     <Layout location={location} theme="dark">
       <SEO title="About" />
-      <Content>
-        <Paragraph style={{ width: 450, textAlign: "left", marginRight: 20 }}>
-          This is a collection of some of my personal projects and coding
-          experiments.
-        </Paragraph>
-        <ProjectsList>
-          {data.projects.edges.map(({ node }) => (
-            <Project key={node.id} color={node.color}>
+      <ProjectsList>
+        {data.projects.edges.map(({ node }, index) => (
+          <Project key={node.id}>
+            <div>
+              {index === 0 ? (
+                <Paragraph style={{ textAlign: "left" }}>
+                  This is a collection of some of my personal projects and
+                  coding experiments.
+                </Paragraph>
+              ) : (
+                <SpiralSvg
+                  width="100%"
+                  height="100%"
+                  style={{ maxHeight: 200, stroke: node.color.main }}
+                ></SpiralSvg>
+              )}
+            </div>
+            <ProjectContent color={node.color}>
               <ProjectHeader>
                 <ProjectTitle>{node.name}</ProjectTitle>
                 <ProjectLinks>
@@ -113,10 +136,10 @@ const ProjectsPage = ({ data, location }) => {
               {node.tech.map(tech => (
                 <Tech key={tech}>{tech}</Tech>
               ))}
-            </Project>
-          ))}
-        </ProjectsList>
-      </Content>
+            </ProjectContent>
+          </Project>
+        ))}
+      </ProjectsList>
     </Layout>
   );
 };

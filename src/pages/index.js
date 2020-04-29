@@ -8,7 +8,7 @@ import { graphql } from "gatsby";
 const HomePage = ({ data, location }) => {
   const { backgrounds } = data;
   const [background, setBackground] = React.useState(
-    backgrounds.edges[0].node.name
+    backgrounds.edges[0].node.name // default to first image
   );
 
   const theme = backgrounds.edges.find(b => b.node.name === background)?.node
