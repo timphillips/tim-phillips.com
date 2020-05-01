@@ -2,48 +2,50 @@
   color:
     main: rgb(149, 165, 166)
     background: rgba(149, 165, 166, 0.1)
-  description: An art project that documents my travels around the world.
+  description: An interactive art project that documents my travels around the world.
   source: https://github.com/timphillips/snapshots
   tech:
     - RxJs
     - Vanilla JS
+    - Photography
   url: http://snapshots.tim-phillips.com/
-  year: 2020
+  year: "2020"
 - name: tim-phillips.com
   color:
     main: rgb(22, 160, 133)
     background: rgba(22, 160, 133, 0.05);
   description: >
     I redesign my personal website once a year or so - usually to learn about a new technology or framework.
-    The latest version is built with Gastby, React and styled components.
+    The latest version is built with Gastby with a big focus on performance.
   source: https://github.com/timphillips/tim-phillips.com
   tech:
     - Gastby
-    - styled-components
     - React
+    - styled-components
+    - YAML
   url: https://www.tim-phillips.com
-  year: 2020
+  year: 2010 – 2020
 - name: Scottish BAME Writers Network
   color:
     main: rgb(241, 196, 15)
     background: rgba(241, 196, 15, 0.1)
-  description: Volunteer project to setup and run the Scottish BAME Writers Network website. Wordpress...
+  description: Volunteer project to setup and run the Scottish BAME Writers Network website.
   tech:
     - Web Hosting
     - WordPress
   url: https://www.scottishbamewritersnetwork.org
-  year: 2020
+  year: "2020"
 - name: lock
   color:
     main: rgb(192, 57, 43)
     background: rgba(192, 57, 43, 0.08)
-  description: An interactive single-dial combination lock built with rxjs.
+  description: An interactive single-dial combination lock built with RxJs.
   source: https://github.com/timphillips/lock
   tech:
     - RxJs
     - SVG
   url: http://lock.tim-phillips.com/
-  year: 2019
+  year: "2019"
 - name: travel map
   color:
     main: rgb(52, 73, 94)
@@ -53,7 +55,7 @@
   tech:
     - React
   url: https://map.tim-phillips.com/
-  year: 2018
+  year: "2018"
 - name: parallax images
   color:
     main: rgb(230, 126, 34)
@@ -62,7 +64,6 @@
   source: https://github.com/timphillips/parallax
   tech:
     - Parallax.js
-    - Gastby
-    - Photo Editing
+    - Photoshop
   url: https://parallax.tim-phillips.com/
-  year: 2017
+  year: "2017"
