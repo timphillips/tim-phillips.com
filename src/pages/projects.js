@@ -8,7 +8,20 @@ import SEO from "../components/SEO";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
-const Project = styled.li``;
+const Project = styled.li`
+  display: grid;
+  position: relative;
+
+  grid-template-columns: 230px 1fr;
+  grid-gap: 20px;
+
+  @media (max-width: 720px) {
+    & > ${ProjectIcon} {
+      display: none;
+    }
+    grid-template-columns: 1fr;
+  }
+`;
 
 const ProjectContent = styled.div`
   border-radius: 2px;
@@ -29,26 +42,21 @@ const ProjectIcon = styled.div`
 
 const ProjectLink = styled.a`
   cursor: pointer;
-  display: grid;
   color: ${props => props.theme.color.main};
   text-decoration: none;
 
-  grid-template-columns: 230px 1fr;
-  grid-gap: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
-  &:focus > ${ProjectIcon}, &:hover > ${ProjectIcon} {
+  &:focus ~ ${ProjectIcon}, &:hover ~ ${ProjectIcon} {
     opacity: 1;
   }
 
-  &:focus > ${ProjectContent}, &:hover > ${ProjectContent} {
+  &:focus ~ ${ProjectContent}, &:hover ~ ${ProjectContent} {
     background-color: ${props => props.color.background};
-  }
-
-  @media (max-width: 720px) {
-    & > ${ProjectIcon} {
-      display: none;
-    }
-    grid-template-columns: 1fr;
   }
 `;
 
@@ -67,6 +75,7 @@ const ProjectTitle = styled.h3`
 const ProjectExternalLinks = styled.div`
   display: flex;
   justify-content: flex-end;
+  z-index: 1;
 `;
 
 const ProjectExternalLink = styled.a`
@@ -75,7 +84,7 @@ const ProjectExternalLink = styled.a`
   cursor: pointer;
 `;
 
-const ProjectsList = styled.ul`
+const ProjectsList = styled.ol`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 50px;
@@ -119,54 +128,53 @@ const ProjectsPage = ({ data, location }) => {
       </Paragraph>
       <ProjectsList>
         {data.projects.edges.map(({ node }) => (
-          <Project key={node.id}>
+          <Project key={node.id} color={node.color}>
             <ProjectLink
               color={node.color}
               href={node.url}
               rel="noopener noreferrer"
               target="_blank"
-            >
-              <ProjectIcon>
-                <LockSvg
-                  width="100%"
-                  height="100%"
-                  style={{ maxHeight: 200, stroke: node.color.main }}
-                />
-              </ProjectIcon>
-              <ProjectContent color={node.color}>
-                <ProjectHeader>
-                  <ProjectTitle>{node.name}</ProjectTitle>
-                  <ProjectExternalLinks>
-                    {node.source && (
-                      <ProjectExternalLink
-                        href={node.source}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        title="Open Source on GitHub"
-                      >
-                        <FaGithub />
-                      </ProjectExternalLink>
-                    )}
-                    {node.url && (
-                      <ProjectExternalLink
-                        href={node.url}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        title={`${node.name}`}
-                      >
-                        <FaExternalLinkAlt />
-                      </ProjectExternalLink>
-                    )}
-                  </ProjectExternalLinks>
-                </ProjectHeader>
-                <ProjectDescription>{node.description}</ProjectDescription>
-                <ProjectTech>
-                  {node.tech.map(tech => (
-                    <Tech key={tech}>{tech}</Tech>
-                  ))}
-                </ProjectTech>
-              </ProjectContent>
-            </ProjectLink>
+            ></ProjectLink>
+            <ProjectIcon>
+              <LockSvg
+                width="100%"
+                height="100%"
+                style={{ maxHeight: 200, stroke: node.color.main }}
+              />
+            </ProjectIcon>
+            <ProjectContent color={node.color}>
+              <ProjectHeader>
+                <ProjectTitle>{node.name}</ProjectTitle>
+                <ProjectExternalLinks>
+                  {node.source && (
+                    <ProjectExternalLink
+                      href={node.source}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      title="Open Source on GitHub"
+                    >
+                      <FaGithub />
+                    </ProjectExternalLink>
+                  )}
+                  {node.url && (
+                    <ProjectExternalLink
+                      href={node.url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      title={`${node.name}`}
+                    >
+                      <FaExternalLinkAlt />
+                    </ProjectExternalLink>
+                  )}
+                </ProjectExternalLinks>
+              </ProjectHeader>
+              <ProjectDescription>{node.description}</ProjectDescription>
+              <ProjectTech>
+                {node.tech.map(tech => (
+                  <Tech key={tech}>{tech}</Tech>
+                ))}
+              </ProjectTech>
+            </ProjectContent>
           </Project>
         ))}
       </ProjectsList>
