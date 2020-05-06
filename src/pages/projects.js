@@ -5,6 +5,7 @@ import LockSvg from "../assets/lock.svg";
 import { Paragraph } from "../components/Paragraph";
 import React from "react";
 import SEO from "../components/SEO";
+import VisibilitySensor from "react-visibility-sensor";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
@@ -50,6 +51,7 @@ const ProjectLink = styled.a`
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1;
 
   &:focus ~ ${ProjectIcon}, &:hover ~ ${ProjectIcon} {
     opacity: 1;
@@ -112,77 +114,15 @@ const Tech = styled.span`
   white-space: nowrap;
 `;
 
-const ProjectsPage = ({ data, location }) => {
-  React.useEffect(() => {
-    for (const path of document.querySelectorAll("path")) {
-      path.style.strokeDashoffset = 0;
-    }
-  }, []);
-
-  return (
-    <Layout location={location} theme="dark">
-      <SEO title="About" />
-      <Paragraph style={{ textAlign: "left", marginTop: 40 }}>
-        This is a collection of some of my personal projects and coding
-        experiments.
-      </Paragraph>
-      <ProjectsList>
-        {data.projects.edges.map(({ node }) => (
-          <Project key={node.id} color={node.color}>
-            <ProjectLink
-              color={node.color}
-              href={node.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            ></ProjectLink>
-            <ProjectIcon>
-              <LockSvg
-                width="100%"
-                height="100%"
-                style={{ maxHeight: 200, stroke: node.color.main }}
-              />
-            </ProjectIcon>
-            <ProjectContent color={node.color}>
-              <ProjectHeader>
-                <ProjectTitle>{node.name}</ProjectTitle>
-                <ProjectExternalLinks>
-                  {node.source && (
-                    <ProjectExternalLink
-                      href={node.source}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title="Open Source on GitHub"
-                    >
-                      <FaGithub />
-                    </ProjectExternalLink>
-                  )}
-                  {node.url && (
-                    <ProjectExternalLink
-                      href={node.url}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title={`${node.name}`}
-                    >
-                      <FaExternalLinkAlt />
-                    </ProjectExternalLink>
-                  )}
-                </ProjectExternalLinks>
-              </ProjectHeader>
-              <ProjectDescription>{node.description}</ProjectDescription>
-              <ProjectTech>
-                {node.tech.map(tech => (
-                  <Tech key={tech}>{tech}</Tech>
-                ))}
-              </ProjectTech>
-            </ProjectContent>
-          </Project>
-        ))}
-      </ProjectsList>
-    </Layout>
-  );
+const onProjectIconVisiblyChanged = (visible, iconId) => {
+  if (!visible) {
+    return;
+  }
+  const path = document.querySelector(`#projectIcon_${iconId} path`);
+  if (path) {
+    path.style.strokeDashoffset = 0;
+  }
 };
-
-export default ProjectsPage;
 
 export const pageQuery = graphql`
   query {
@@ -210,3 +150,77 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+const ProjectsPage = ({ data }) => (
+  <Layout theme="dark">
+    <SEO title="Projects" />
+    <Paragraph style={{ textAlign: "left", marginTop: 40 }}>
+      This is a collection of some of my personal projects and coding
+      experiments.
+    </Paragraph>
+    <ProjectsList>
+      {data.projects.edges.map(({ node }) => (
+        <Project key={node.id} color={node.color}>
+          <ProjectLink
+            color={node.color}
+            href={node.url}
+            rel="noopener noreferrer"
+            target="_blank"
+          ></ProjectLink>
+          <ProjectIcon>
+            <VisibilitySensor
+              partialVisibility
+              minTopValue={100}
+              intervalDelay
+              onChange={visible =>
+                onProjectIconVisiblyChanged(visible, node.id)
+              }
+            >
+              <LockSvg
+                id={`projectIcon_${node.id}`}
+                width="100%"
+                height="100%"
+                style={{ maxHeight: 200, stroke: node.color.main }}
+              />
+            </VisibilitySensor>
+          </ProjectIcon>
+          <ProjectContent color={node.color}>
+            <ProjectHeader>
+              <ProjectTitle>{node.name}</ProjectTitle>
+              <ProjectExternalLinks>
+                {node.source && (
+                  <ProjectExternalLink
+                    href={node.source}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    title="Open Source on GitHub"
+                  >
+                    <FaGithub />
+                  </ProjectExternalLink>
+                )}
+                {node.url && (
+                  <ProjectExternalLink
+                    href={node.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    title={`${node.name}`}
+                  >
+                    <FaExternalLinkAlt />
+                  </ProjectExternalLink>
+                )}
+              </ProjectExternalLinks>
+            </ProjectHeader>
+            <ProjectDescription>{node.description}</ProjectDescription>
+            <ProjectTech>
+              {node.tech.map(tech => (
+                <Tech key={tech}>{tech}</Tech>
+              ))}
+            </ProjectTech>
+          </ProjectContent>
+        </Project>
+      ))}
+    </ProjectsList>
+  </Layout>
+);
+
+export default ProjectsPage;

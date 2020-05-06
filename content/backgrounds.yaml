@@ -1,20 +1,20 @@
-- name: background-skye
+- id: background-skye
   theme: light
   image: assets/backgrounds/background-skye.jpg
   position: 53% 60%
-- name: background-ozette
+- id: background-ozette
   theme: dark
   image: assets/backgrounds/background-ozette.jpg
   position: 45% 50%
-- name: background-zion
+- id: background-zion
   theme: dark
   image: assets/backgrounds/background-zion.jpg
   style: inset
   position: 90% 60%
-- name: background-iceland
+- id: background-iceland
   theme: dark
   image: assets/backgrounds/background-iceland.jpg
-- name: background-redwood
+- id: background-redwood
   theme: dark
   image: assets/backgrounds/background-redwood.jpg
   style: inset

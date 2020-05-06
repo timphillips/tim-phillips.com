@@ -1,44 +1,16 @@
-import { Background, BackgroundImagePicker } from "../components/Background";
+import { Background, BackgroundPicker } from "../components/Background";
 
 import Layout from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
 
-const HomePage = ({ data, location }) => {
-  const { backgrounds } = data;
-  const [background, setBackground] = React.useState(
-    backgrounds.edges[0].node.name // default to first image
-  );
-
-  const theme = backgrounds.edges.find(b => b.node.name === background)?.node
-    .theme;
-
-  return (
-    <Layout location={location} theme={theme}>
-      <SEO title="Home" />
-      <BackgroundImagePicker
-        images={backgrounds.edges.map(b => b.node)}
-        current={background}
-        onChange={setBackground}
-      />
-      <Background
-        current={background}
-        images={backgrounds.edges.map(b => b.node)}
-        onChange={setBackground}
-      />
-    </Layout>
-  );
-};
-
-export default HomePage;
-
 export const pageQuery = graphql`
   query {
     backgrounds: allBackgroundsYaml {
       edges {
         node {
-          name
+          id
           theme
           style
           position
@@ -54,3 +26,27 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+const HomePage = ({ data: { backgrounds } }) => {
+  const [backgroundId, setBackgroundId] = React.useState(
+    backgrounds.edges[0].node.id // default to first image
+  );
+
+  const background = backgrounds.edges.find(b => b.node.id === backgroundId);
+  return (
+    <Layout theme={background?.node.theme}>
+      <SEO title="Home" />
+      <BackgroundPicker
+        currentId={backgroundId}
+        imageIds={backgrounds.edges.map(b => b.node.id)}
+        onChange={setBackgroundId}
+      />
+      <Background
+        currentId={backgroundId}
+        images={backgrounds.edges.map(b => b.node)}
+      />
+    </Layout>
+  );
+};
+
+export default HomePage;

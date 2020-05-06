@@ -15,24 +15,22 @@ const BackgroundImage = styled(Image)`
   transition: opacity 0.5s ease;
 `;
 
-export const Background = ({ images, current }) => {
-  return (
-    <div>
-      {images.map(({ name, image, style, position }) => (
-        <BackgroundImage
-          key={name}
-          imageStyle={style}
-          fluid={image.childImageSharp.fluid}
-          style={{ position: "fixed", opacity: name === current ? 1 : 0 }}
-          imgStyle={{
-            userSelect: "none",
-            objectPosition: position || "center 30%"
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+export const Background = ({ currentId, images }) => (
+  <div>
+    {images.map(({ id, image, style, position }) => (
+      <BackgroundImage
+        key={id}
+        imageStyle={style}
+        fluid={image.childImageSharp.fluid}
+        style={{ position: "fixed", opacity: id === currentId ? 1 : 0 }}
+        imgStyle={{
+          userSelect: "none",
+          objectPosition: position || "center 30%"
+        }}
+      />
+    ))}
+  </div>
+);
 
 const StyledUnorderedList = styled.ol`
   display: flex;
@@ -53,14 +51,12 @@ const StyledButton = styled.button`
     props.active ? props.theme.color.main : "rgba(0, 0, 0, 0)"};
 `;
 
-export const BackgroundImagePicker = ({ images, current, onChange }) => {
-  const controls = images.map(({ name }) => (
-    <StyledListItem key={name}>
-      <StyledButton active={current === name} onClick={() => onChange(name)} />
-    </StyledListItem>
-  ));
-
-  return <StyledUnorderedList>{controls}</StyledUnorderedList>;
-};
-
-export default BackgroundImagePicker;
+export const BackgroundPicker = ({ imageIds, currentId, onChange }) => (
+  <StyledUnorderedList>
+    {imageIds.map(id => (
+      <StyledListItem key={id}>
+        <StyledButton active={currentId === id} onClick={() => onChange(id)} />
+      </StyledListItem>
+    ))}
+  </StyledUnorderedList>
+);

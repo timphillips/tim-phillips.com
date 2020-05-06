@@ -6,7 +6,7 @@
   source: https://github.com/timphillips/snapshots
   tech:
     - RxJs
-    - Vanilla JS
+    - TypeScript
     - Photography
   url: http://snapshots.tim-phillips.com/
   year: "2020"
@@ -44,6 +44,7 @@
   tech:
     - RxJs
     - SVG
+    - Mobile
   url: http://lock.tim-phillips.com/
   year: "2019"
 - name: travel map
@@ -54,6 +55,7 @@
   source: https://github.com/timphillips/travel-map
   tech:
     - React
+    - Google Maps API
   url: https://map.tim-phillips.com/
   year: "2018"
 - name: parallax images

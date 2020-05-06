@@ -42,11 +42,11 @@ const StyledSection = styled.section`
   padding-bottom: 20px;
 `;
 
-const BlogPage = ({ data, location }) => {
+const BlogPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} theme="dark">
+    <Layout theme="dark">
       <SEO title="All posts" />
       <Content>
         {posts.map(({ node }) => {
