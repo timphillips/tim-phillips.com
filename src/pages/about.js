@@ -23,7 +23,7 @@ const Highlight = styled.span`
 
 const ProfilePic = styled(Image)`
   width: 270px;
-  border-radius: 2px;
+  border-radius: 3px;
 
   @media (max-width: 730px) {
     width: 100%;

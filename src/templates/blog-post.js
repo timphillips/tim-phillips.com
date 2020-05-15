@@ -1,8 +1,7 @@
 import { Link, graphql } from "gatsby";
 
-import Layout from "../components/layout";
 import React from "react";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 
 // import Bio from "../components/bio"
 

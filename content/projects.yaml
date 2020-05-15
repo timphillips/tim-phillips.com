@@ -9,8 +9,9 @@
     - RxJs
     - TypeScript
     - Photography
-  url: http://snapshots.tim-phillips.com/
+  url: https://snapshots.tim-phillips.com/
   year: "2020"
+
 - id: personal-website
   name: tim-phillips.com
   color:
@@ -27,6 +28,7 @@
     - YAML
   url: https://www.tim-phillips.com
   year: 2010 – 2020
+
 - id: scottish-bame-writers-network
   name: Scottish BAME Writers Network
   color:
@@ -38,6 +40,7 @@
     - WordPress
   url: https://www.scottishbamewritersnetwork.org
   year: "2020"
+
 - id: lock
   name: lock
   color:
@@ -49,8 +52,9 @@
     - RxJs
     - SVG
     - Mobile
-  url: http://lock.tim-phillips.com/
+  url: https://lock.tim-phillips.com/
   year: "2019"
+
 - id: travel-map
   name: travel map
   color:
@@ -63,6 +67,7 @@
     - Google Maps API
   url: https://map.tim-phillips.com/
   year: "2018"
+
 - id: parallax
   name: parallax images
   color:

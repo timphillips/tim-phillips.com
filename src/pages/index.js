@@ -34,7 +34,7 @@ const HomePage = ({ data: { backgrounds } }) => {
 
   const background = backgrounds.edges.find(b => b.node.id === backgroundId);
   return (
-    <Layout theme={background?.node.theme}>
+    <Layout theme={background?.node?.theme}>
       <SEO title="Home" />
       <BackgroundPicker
         currentId={backgroundId}

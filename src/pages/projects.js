@@ -14,10 +14,14 @@ import VisibilitySensor from "react-visibility-sensor";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
-const Project = styled.li`
-  display: grid;
-  position: relative;
+const ProjectIcon = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
+const Project = styled.li`
+  position: relative;
+  display: grid;
   grid-template-columns: 210px 1fr;
   grid-gap: 20px;
 
@@ -39,12 +43,6 @@ const ProjectContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-
-const ProjectIcon = styled.div`
-  margin: auto;
-  opacity: 1;
-  transition: opacity 0.3s;
 `;
 
 const ProjectLink = styled.a`
@@ -81,12 +79,12 @@ const ProjectHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 `;
 
 const ProjectTitle = styled.h3`
-  font-weight: 700;
   font-family: "Quando", serif;
+  font-weight: 700;
 `;
 
 const ProjectExternalLinks = styled.div`
@@ -101,7 +99,7 @@ const ProjectExternalLink = styled.a`
   cursor: pointer;
 `;
 
-const ProjectsList = styled.ol`
+const ProjectList = styled.ol`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 50px;
@@ -109,24 +107,22 @@ const ProjectsList = styled.ol`
 `;
 
 const ProjectDescription = styled.p`
-  line-height: 25px;
+  line-height: 23px;
   margin-top: 10px;
   margin-bottom: 20px;
   flex: 1;
 `;
 
-const ProjectTech = styled.div``;
+const TechList = styled.ul``;
 
-const Tech = styled.span`
+const TechItem = styled.li`
   display: inline-block;
   padding: 6px 10px 5px;
-  margin: 0 5px 5px 0;
+  margin: 0 3px 0 3px;
   font-weight: 500;
   font-size: 11px;
-  color: ${props => props.theme.color.main};
   border: 1px dashed rgba(0, 0, 0, 0.4);
   border-radius: 3px;
-  white-space: nowrap;
 `;
 
 const onProjectIconVisiblyChanged = (visible, iconId, fillColor) => {
@@ -182,10 +178,9 @@ const ProjectsPage = ({ data }) => (
       This is a collection of some of my personal projects and coding
       experiments.
     </Paragraph>
-    <ProjectsList>
+    <ProjectList>
       {data.projects.edges.map(({ node }) => {
         const Icon = iconsByProjectId[node.id];
-
         return (
           <Project key={node.id} color={node.color}>
             <ProjectLink
@@ -250,16 +245,16 @@ const ProjectsPage = ({ data }) => (
                 </ProjectExternalLinks>
               </ProjectHeader>
               <ProjectDescription>{node.description}</ProjectDescription>
-              <ProjectTech>
+              <TechList>
                 {node.tech.map(tech => (
-                  <Tech key={tech}>{tech}</Tech>
+                  <TechItem key={tech}>{tech}</TechItem>
                 ))}
-              </ProjectTech>
+              </TechList>
             </ProjectContent>
           </Project>
         );
       })}
-    </ProjectsList>
+    </ProjectList>
   </Layout>
 );
 
