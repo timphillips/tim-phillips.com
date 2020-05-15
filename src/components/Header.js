@@ -26,7 +26,7 @@ const NavLinkListItem = styled.li`
   display: flex;
   align-items: flex-end;
 
-  @media (max-width: 720px) {
+  @media (max-width: 730px) {
     margin-left: 0;
   }
 `;
@@ -66,7 +66,7 @@ const StyledNav = styled.nav`
   overflow: hidden;
   transition: height 0.4s;
 
-  @media (max-width: 720px) {
+  @media (max-width: 730px) {
     grid-template-rows: auto 45px;
     height: ${props => (props.open ? "90px" : "44px")};
   }
@@ -88,7 +88,7 @@ const MenuButton = styled.button`
   cursor: pointer;
   margin-left: 20px;
 
-  @media (max-width: 720px) {
+  @media (max-width: 730px) {
     display: unset;
   }
 `;

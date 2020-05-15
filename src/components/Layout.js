@@ -23,6 +23,7 @@ const LayoutFrame = styled.div`
 
 const StyledMain = styled.main`
   grid-area: main;
+  color: ${props => props.theme.color.main};
 `;
 
 const Layout = ({ children, theme: themeId }) => {

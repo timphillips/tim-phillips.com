@@ -1,10 +1,15 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
+import BookSvg from "../assets/book.svg";
+import CameraSvg from "../assets/camera.svg";
 import Layout from "../components/Layout";
 import LockSvg from "../assets/lock.svg";
 import { Paragraph } from "../components/Paragraph";
+import ParallaxSvg from "../assets/parallax.svg";
+import ProfileSvg from "../assets/profile.svg";
 import React from "react";
 import SEO from "../components/SEO";
+import TravelMapSvg from "../assets/travel-map.svg";
 import VisibilitySensor from "react-visibility-sensor";
 import { graphql } from "gatsby";
 import styled from "styled-components";
@@ -13,7 +18,7 @@ const Project = styled.li`
   display: grid;
   position: relative;
 
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: 210px 1fr;
   grid-gap: 20px;
 
   @media (max-width: 720px) {
@@ -37,7 +42,8 @@ const ProjectContent = styled.div`
 `;
 
 const ProjectIcon = styled.div`
-  opacity: 0.5;
+  margin: auto;
+  opacity: 1;
   transition: opacity 0.3s;
 `;
 
@@ -55,6 +61,15 @@ const ProjectLink = styled.a`
 
   &:focus ~ ${ProjectIcon}, &:hover ~ ${ProjectIcon} {
     opacity: 1;
+  }
+
+  & ~ ${ProjectIcon} > svg {
+    fill: transparent;
+    transition: ;
+  }
+
+  &:hover ~ ${ProjectIcon} > svg {
+    fill: ${props => props.color.background};
   }
 
   &:focus ~ ${ProjectContent}, &:hover ~ ${ProjectContent} {
@@ -114,14 +129,23 @@ const Tech = styled.span`
   white-space: nowrap;
 `;
 
-const onProjectIconVisiblyChanged = (visible, iconId) => {
+const onProjectIconVisiblyChanged = (visible, iconId, fillColor) => {
   if (!visible) {
     return;
   }
-  const path = document.querySelector(`#projectIcon_${iconId} path`);
+  const path = document.querySelector(`#projectIcon_${iconId}`);
   if (path) {
     path.style.strokeDashoffset = 0;
   }
+};
+
+const iconsByProjectId = {
+  lock: LockSvg,
+  "personal-website": ProfileSvg,
+  "scottish-bame-writers-network": BookSvg,
+  "travel-map": TravelMapSvg,
+  parallax: ParallaxSvg,
+  snapshots: CameraSvg
 };
 
 export const pageQuery = graphql`
@@ -159,66 +183,82 @@ const ProjectsPage = ({ data }) => (
       experiments.
     </Paragraph>
     <ProjectsList>
-      {data.projects.edges.map(({ node }) => (
-        <Project key={node.id} color={node.color}>
-          <ProjectLink
-            color={node.color}
-            href={node.url}
-            rel="noopener noreferrer"
-            target="_blank"
-          ></ProjectLink>
-          <ProjectIcon>
-            <VisibilitySensor
-              partialVisibility
-              minTopValue={100}
-              intervalDelay
-              onChange={visible =>
-                onProjectIconVisiblyChanged(visible, node.id)
-              }
-            >
-              <LockSvg
-                id={`projectIcon_${node.id}`}
-                width="100%"
-                height="100%"
-                style={{ maxHeight: 200, stroke: node.color.main }}
-              />
-            </VisibilitySensor>
-          </ProjectIcon>
-          <ProjectContent color={node.color}>
-            <ProjectHeader>
-              <ProjectTitle>{node.name}</ProjectTitle>
-              <ProjectExternalLinks>
-                {node.source && (
-                  <ProjectExternalLink
-                    href={node.source}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    title="Open Source on GitHub"
-                  >
-                    <FaGithub />
-                  </ProjectExternalLink>
-                )}
-                {node.url && (
-                  <ProjectExternalLink
-                    href={node.url}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    title={`${node.name}`}
-                  >
-                    <FaExternalLinkAlt />
-                  </ProjectExternalLink>
-                )}
-              </ProjectExternalLinks>
-            </ProjectHeader>
-            <ProjectDescription>{node.description}</ProjectDescription>
-            <ProjectTech>
-              {node.tech.map(tech => (
-                <Tech key={tech}>{tech}</Tech>
-              ))}
-            </ProjectTech>
-          </ProjectContent>
-        </Project>
-      ))}
+      {data.projects.edges.map(({ node }) => {
+        const Icon = iconsByProjectId[node.id];
+
+        return (
+          <Project key={node.id} color={node.color}>
+            <ProjectLink
+              color={node.color}
+              href={node.url}
+              rel="noopener noreferrer"
+              target="_blank"
+            ></ProjectLink>
+            <ProjectIcon>
+              <VisibilitySensor
+                partialVisibility
+                minTopValue={100}
+                intervalDelay
+                onChange={visible =>
+                  onProjectIconVisiblyChanged(
+                    visible,
+                    node.id,
+                    node.color.background
+                  )
+                }
+              >
+                <Icon
+                  id={`projectIcon_${node.id}`}
+                  width="100%"
+                  height="100%"
+                  style={{
+                    width: 180,
+                    stroke: node.color.main,
+                    strokeWidth: 1.3,
+                    strokeDasharray: 2200,
+                    strokeDashoffset: 2200,
+                    transition:
+                      "stroke-dashoffset 4000ms ease-in-out 0s, fill 0.3s"
+                  }}
+                />
+              </VisibilitySensor>
+            </ProjectIcon>
+            <ProjectContent color={node.color}>
+              <ProjectHeader>
+                <ProjectTitle>{node.name}</ProjectTitle>
+                <ProjectExternalLinks>
+                  {node.source && (
+                    <ProjectExternalLink
+                      href={node.source}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      title="Open Source on GitHub"
+                    >
+                      <FaGithub />
+                    </ProjectExternalLink>
+                  )}
+                  {node.url && (
+                    <ProjectExternalLink
+                      href={node.url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      title={`${node.name}`}
+                    >
+                      <FaExternalLinkAlt />
+                    </ProjectExternalLink>
+                  )}
+                </ProjectExternalLinks>
+              </ProjectHeader>
+              <ProjectDescription>{node.description}</ProjectDescription>
+              <ProjectTech>
+                {node.tech.map(tech => (
+                  <Tech key={tech}>{tech}</Tech>
+                ))}
+              </ProjectTech>
+            </ProjectContent>
+          </Project>
+        );
+      })}
     </ProjectsList>
   </Layout>
 );

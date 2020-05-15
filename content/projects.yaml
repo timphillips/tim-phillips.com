@@ -1,4 +1,5 @@
-- name: snapshots
+- id: snapshots
+  name: snapshots
   color:
     main: rgb(149, 165, 166)
     background: rgba(149, 165, 166, 0.1)
@@ -10,10 +11,11 @@
     - Photography
   url: http://snapshots.tim-phillips.com/
   year: "2020"
-- name: tim-phillips.com
+- id: personal-website
+  name: tim-phillips.com
   color:
     main: rgb(22, 160, 133)
-    background: rgba(22, 160, 133, 0.05);
+    background: rgba(22, 160, 133, 0.1)
   description: >
     I redesign my personal website once a year or so - usually to learn about a new technology or framework.
     The latest version is built with Gastby with a big focus on performance.
@@ -25,20 +27,22 @@
     - YAML
   url: https://www.tim-phillips.com
   year: 2010 – 2020
-- name: Scottish BAME Writers Network
+- id: scottish-bame-writers-network
+  name: Scottish BAME Writers Network
   color:
     main: rgb(241, 196, 15)
-    background: rgba(241, 196, 15, 0.1)
+    background: rgba(241, 196, 15, 0.2)
   description: Volunteer project to setup and run the Scottish BAME Writers Network website.
   tech:
     - Web Hosting
     - WordPress
   url: https://www.scottishbamewritersnetwork.org
   year: "2020"
-- name: lock
+- id: lock
+  name: lock
   color:
     main: rgb(192, 57, 43)
-    background: rgba(192, 57, 43, 0.08)
+    background: rgba(192, 57, 43, 0.1)
   description: An interactive single-dial combination lock built with RxJs.
   source: https://github.com/timphillips/lock
   tech:
@@ -47,7 +51,8 @@
     - Mobile
   url: http://lock.tim-phillips.com/
   year: "2019"
-- name: travel map
+- id: travel-map
+  name: travel map
   color:
     main: rgb(52, 73, 94)
     background: rgba(52, 73, 94, 0.1)
@@ -58,7 +63,8 @@
     - Google Maps API
   url: https://map.tim-phillips.com/
   year: "2018"
-- name: parallax images
+- id: parallax
+  name: parallax images
   color:
     main: rgb(230, 126, 34)
     background: rgba(230, 126, 34, 0.1)

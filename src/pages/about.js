@@ -10,10 +10,9 @@ const Content = styled.section`
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 4em;
-  margin-top: 75px;
-  color: ${props => props.theme.color.main};
+  margin: 75px 0;
 
-  @media (max-width: 800px) {
+  @media (max-width: 730px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -26,9 +25,8 @@ const ProfilePic = styled(Image)`
   width: 270px;
   border-radius: 2px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 730px) {
     width: 100%;
-    margin-bottom: 40px;
   }
 `;
 
@@ -65,7 +63,7 @@ const AboutPage = ({ data }) => (
             rel="noopener noreferrer"
             target="_blank"
             title="Pandell JV"
-            href="http://www.pandelljv.com/"
+            href="https://www.pandelljv.com/"
           >
             Pandell JV
           </Link>
@@ -114,7 +112,7 @@ const AboutPage = ({ data }) => (
             rel="noopener noreferrer"
             target="_blank"
             title="Alycia Pirmohamed"
-            href="http://alycia-pirmohamed.com/"
+            href="https://alycia-pirmohamed.com/"
           >
             partner
           </Link>
