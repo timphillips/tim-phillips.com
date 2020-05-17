@@ -109,7 +109,7 @@ const ProjectList = styled.ol`
 const ProjectDescription = styled.p`
   line-height: 23px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   flex: 1;
 `;
 
@@ -118,7 +118,7 @@ const TechList = styled.ul``;
 const TechItem = styled.li`
   display: inline-block;
   padding: 6px 10px 5px;
-  margin: 0 3px 0 3px;
+  margin: 6px 3px 0 3px;
   font-weight: 500;
   font-size: 11px;
   border: 1px dashed rgba(0, 0, 0, 0.4);

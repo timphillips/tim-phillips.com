@@ -25,14 +25,9 @@ const SocialIconListItem = styled.li`
   display: flex;
   align-items: flex-end;
   opacity: 0.7;
-  margin-left: 35px;
 
   &:hover {
     opacity: 1;
-  }
-
-  &:first-of-type {
-    margin-left: 0;
   }
 `;
 

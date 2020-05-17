@@ -1,20 +1,25 @@
 - id: background-skye
+  name: Skye, Scotland
   theme: light
   image: assets/backgrounds/background-skye.jpg
   position: 53% 60%
 - id: background-ozette
+  name: Ozette, Washington
   theme: dark
   image: assets/backgrounds/background-ozette.jpg
   position: 45% 50%
 - id: background-zion
+  name: Zion, Utah
   theme: dark
   image: assets/backgrounds/background-zion.jpg
   style: inset
   position: 90% 60%
 - id: background-iceland
+  name: Iceland
   theme: dark
   image: assets/backgrounds/background-iceland.jpg
 - id: background-redwood
+  name: Redwood National Park, California
   theme: dark
   image: assets/backgrounds/background-redwood.jpg
   style: inset

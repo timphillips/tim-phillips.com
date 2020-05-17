@@ -13,6 +13,13 @@ const StyledFooter = styled.footer`
   height: 30px;
 `;
 
+const SocialLinks = styled.ul`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+`;
+
 const Footer = () => {
   const { social } = useStaticQuery(graphql`
     query {
@@ -30,9 +37,11 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      {social.edges.map(({ node }) => (
-        <SocialLink key={node.name} {...node} />
-      ))}
+      <SocialLinks>
+        {social.edges.map(({ node }) => (
+          <SocialLink key={node.name} {...node} />
+        ))}
+      </SocialLinks>
     </StyledFooter>
   );
 };

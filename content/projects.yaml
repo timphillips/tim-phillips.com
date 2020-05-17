@@ -16,7 +16,7 @@
   name: tim-phillips.com
   color:
     main: rgb(22, 160, 133)
-    background: rgba(22, 160, 133, 0.1)
+    background: rgba(22, 160, 133, 0.07)
   description: >
     I redesign my personal website once a year or so - usually to learn about a new technology or framework.
     The latest version is built with Gastby with a big focus on performance.
@@ -45,7 +45,7 @@
   name: lock
   color:
     main: rgb(192, 57, 43)
-    background: rgba(192, 57, 43, 0.1)
+    background: rgba(192, 57, 43, 0.05)
   description: An interactive single-dial combination lock built with RxJs.
   source: https://github.com/timphillips/lock
   tech:
@@ -59,7 +59,7 @@
   name: travel map
   color:
     main: rgb(52, 73, 94)
-    background: rgba(52, 73, 94, 0.1)
+    background: rgba(52, 73, 94, 0.07)
   description: A simple React application that displays a world map with location markers.
   source: https://github.com/timphillips/travel-map
   tech:

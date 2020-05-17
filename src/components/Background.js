@@ -13,6 +13,17 @@ const BackgroundImage = styled(Image)`
   z-index: -1;
   opacity: 0;
   transition: opacity 0.5s ease;
+
+  @media (max-width: 730px) {
+    top: ${props => (props.imageStyle === "inset" ? `200px` : "20px")};
+    left: 20px;
+    width: calc(100% - 40px);
+  }
+
+  @media (max-width: 360px) {
+    left: 0;
+    width: 100%;
+  }
 `;
 
 export const Background = ({ currentId, images }) => (
@@ -55,7 +66,11 @@ export const BackgroundPicker = ({ imageIds, currentId, onChange }) => (
   <StyledUnorderedList>
     {imageIds.map(id => (
       <StyledListItem key={id}>
-        <StyledButton active={currentId === id} onClick={() => onChange(id)} />
+        <StyledButton
+          active={currentId === id}
+          onClick={() => onChange(id)}
+          aria-label={`Set background to ${id}`}
+        />
       </StyledListItem>
     ))}
   </StyledUnorderedList>

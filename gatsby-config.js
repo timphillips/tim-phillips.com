@@ -71,7 +71,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-166861528-1`
       }
     },
     `gatsby-plugin-feed`,
@@ -82,11 +82,12 @@ module.exports = {
         short_name: `Tim Phillips`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#37474f`,
         display: `minimal-ui`,
         icon: `content/assets/favicon.ico`
       }
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

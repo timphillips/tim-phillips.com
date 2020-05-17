@@ -19,6 +19,13 @@ const LayoutFrame = styled.div`
     "header"
     "main"
     "footer";
+
+  @media (max-width: 400px) {
+    padding: 0 30px;
+  }
+  @media (max-width: 360px) {
+    padding: 0 10px;
+  }
 `;
 
 const StyledMain = styled.main`

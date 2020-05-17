@@ -86,7 +86,6 @@ const MenuButton = styled.button`
   display: none;
   padding: 0;
   cursor: pointer;
-  margin-left: 20px;
 
   @media (max-width: 730px) {
     display: unset;

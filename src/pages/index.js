@@ -11,6 +11,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          name
           theme
           style
           position
