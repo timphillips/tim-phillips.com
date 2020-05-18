@@ -19,5 +19,5 @@ export const LargerParagraph = styled(Paragraph)`
   padding: 20px;
   margin: 0 0 50px 0;
   text-align: center;
-  border: 1px dashed rgba(0, 0, 0, 0.5);
+  border: 1px dashed ${props => props.theme.color.main};
 `;

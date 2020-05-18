@@ -1,10 +1,11 @@
-import { dark, light } from "../assets/theme";
-import styled, { ThemeProvider } from "styled-components";
+import { dark, resolveTheme } from "../assets/theme";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import Footer from "./Footer";
 import Header from "./Header";
 import React from "react";
 import { Reset } from "styled-reset";
+import { useTheme } from "../hooks/theme";
 
 const LayoutFrame = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
@@ -33,22 +34,29 @@ const StyledMain = styled.main`
   color: ${props => props.theme.color.main};
 `;
 
-const Layout = ({ children, theme: themeId }) => {
-  let theme;
-  switch (themeId) {
-    case "dark":
-      theme = dark;
-      break;
-    default:
-      theme = light;
-      break;
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${props => props.theme.color.background};
+    color: ${props => props.theme.color.main};
+    transition: background 0.2s ease-out;
   }
 
+  body.dark {
+    background-color: ${dark.color.background};
+  }
+`;
+
+const Layout = ({ children }) => {
+  const [themeId, toggleTheme] = useTheme();
+
+  const theme = resolveTheme(themeId);
+  console.log(theme);
   return (
     <LayoutFrame>
       <Reset />
+      <GlobalStyle theme={theme} />
       <ThemeProvider theme={theme}>
-        <Header />
+        <Header toggleTheme={toggleTheme} />
         <StyledMain>{children}</StyledMain>
         <Footer />
       </ThemeProvider>

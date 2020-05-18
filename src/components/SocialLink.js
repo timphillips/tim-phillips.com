@@ -24,7 +24,7 @@ const SocialIconListItem = styled.li`
   transition: opacity 0.6s ease 0s;
   display: flex;
   align-items: flex-end;
-  opacity: 0.7;
+  opacity: 0.6;
 
   &:hover {
     opacity: 1;
@@ -32,7 +32,7 @@ const SocialIconListItem = styled.li`
 `;
 
 const SocialIconLink = styled.a`
-  color: rgba(0, 0, 0, 0.7);
+  color: ${props => props.theme.color.main};
 `;
 
 const SocialLink = ({ iconId, name, url }) => {

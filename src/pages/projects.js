@@ -63,7 +63,6 @@ const ProjectLink = styled.a`
 
   & ~ ${ProjectIcon} > svg {
     fill: transparent;
-    transition: ;
   }
 
   &:hover ~ ${ProjectIcon} > svg {
@@ -121,7 +120,7 @@ const TechItem = styled.li`
   margin: 6px 3px 0 3px;
   font-weight: 500;
   font-size: 11px;
-  border: 1px dashed rgba(0, 0, 0, 0.4);
+  border: 1px dashed ${props => props.theme.color.main};
   border-radius: 3px;
 `;
 

@@ -4,13 +4,14 @@ import Image from "gatsby-image";
 import Layout from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 
 const Content = styled.section`
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 4em;
-  margin: 75px 0;
+  margin-top: 42px;
 
   @media (max-width: 730px) {
     grid-template-columns: 1fr;

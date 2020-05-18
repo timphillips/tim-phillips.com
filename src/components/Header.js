@@ -2,9 +2,19 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "gatsby";
 import React from "react";
+import ThemeToggle from "./ThemeToggle";
 import styled from "styled-components";
 
 const activeClassName = "link-active";
+
+const ToggleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  height: 30px;
+  margin-bottom: 10px;
+`;
 
 const Title = styled.h1`
   border-radius: 4px;
@@ -17,7 +27,7 @@ const Title = styled.h1`
 const StyledHeader = styled.header`
   grid-area: header;
   font-family: "Quando", serif;
-  margin: 60px 0 10px 0;
+  margin: 0 0 10px 0;
   color: ${props => props.theme.color.main};
 `;
 
@@ -101,17 +111,20 @@ const NavLink = ({ children, to }) => (
   </NavLinkListItem>
 );
 
-const Header = () => {
+const Header = ({ toggleTheme }) => {
   const [open, setOpen] = React.useState();
 
   const links = [
     { label: "about", to: "/about" },
-    { label: "notes", to: "/blog" },
+    // { label: "notes", to: "/blog" },
     { label: "projects", to: "/projects" }
   ];
 
   return (
     <StyledHeader>
+      <ToggleContainer>
+        <ThemeToggle onChange={toggleTheme} />
+      </ToggleContainer>
       <StyledNav open={open}>
         <StyledLink to="/" style={{ alignItems: "flex-start" }}>
           <Title>Tim Phillips</Title>

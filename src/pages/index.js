@@ -4,6 +4,15 @@ import Layout from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
+import styled from "styled-components";
+
+const Content = styled.section`
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+`;
 
 export const pageQuery = graphql`
   query {
@@ -12,9 +21,8 @@ export const pageQuery = graphql`
         node {
           id
           name
-          theme
-          style
           position
+          expandIconColor
           image {
             childImageSharp {
               fluid(maxWidth: 4000, quality: 100) {
@@ -33,19 +41,20 @@ const HomePage = ({ data: { backgrounds } }) => {
     backgrounds.edges[0].node.id // default to first image
   );
 
-  const background = backgrounds.edges.find(b => b.node.id === backgroundId);
   return (
-    <Layout theme={background?.node?.theme}>
+    <Layout>
       <SEO title="Home" />
-      <BackgroundPicker
-        currentId={backgroundId}
-        imageIds={backgrounds.edges.map(b => b.node.id)}
-        onChange={setBackgroundId}
-      />
-      <Background
-        currentId={backgroundId}
-        images={backgrounds.edges.map(b => b.node)}
-      />
+      <Content>
+        <BackgroundPicker
+          currentId={backgroundId}
+          imageIds={backgrounds.edges.map(b => b.node.id)}
+          onChange={setBackgroundId}
+        />
+        <Background
+          currentId={backgroundId}
+          images={backgrounds.edges.map(b => b.node)}
+        />
+      </Content>
     </Layout>
   );
 };

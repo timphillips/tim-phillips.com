@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   padding: 0;
-  height: 30px;
+  margin: 25px 0;
 `;
 
 const SocialLinks = styled.ul`
