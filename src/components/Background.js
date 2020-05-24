@@ -45,6 +45,7 @@ const ExpandButton = styled(({ expandIconColor, ...rest }) => (
   border: none;
   cursor: pointer;
   padding: 0;
+  outline: none;
 
   position: absolute;
   top: 5px;

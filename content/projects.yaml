@@ -1,8 +1,12 @@
 - id: snapshots
   name: snapshots
-  color:
-    main: rgb(149, 165, 166)
-    background: rgba(149, 165, 166, 0.1)
+  colors:
+    light:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
+    dark:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
   description: An interactive art project that documents my travels around the world.
   source: https://github.com/timphillips/snapshots
   tech:
@@ -14,9 +18,13 @@
 
 - id: personal-website
   name: tim-phillips.com
-  color:
-    main: rgb(22, 160, 133)
-    background: rgba(22, 160, 133, 0.07)
+  colors:
+    light:
+      main: rgb(22, 160, 133)
+      background: rgba(22, 160, 133, 0.07)
+    dark:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
   description: >
     I redesign my personal website once a year or so - usually to learn about a new technology or framework.
     The latest version is built with Gastby with a big focus on performance.
@@ -31,9 +39,13 @@
 
 - id: scottish-bame-writers-network
   name: Scottish BAME Writers Network
-  color:
-    main: rgb(241, 196, 15)
-    background: rgba(241, 196, 15, 0.2)
+  colors:
+    light:
+      main: rgb(241, 196, 15)
+      background: rgba(241, 196, 15, 0.2)
+    dark:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
   description: Volunteer project to setup and run the Scottish BAME Writers Network website.
   tech:
     - Web Hosting
@@ -43,9 +55,13 @@
 
 - id: lock
   name: lock
-  color:
-    main: rgb(192, 57, 43)
-    background: rgba(192, 57, 43, 0.05)
+  colors:
+    light:
+      main: rgb(192, 57, 43)
+      background: rgba(192, 57, 43, 0.05)
+    dark:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
   description: An interactive single-dial combination lock built with RxJs.
   source: https://github.com/timphillips/lock
   tech:
@@ -57,9 +73,13 @@
 
 - id: travel-map
   name: travel map
-  color:
-    main: rgb(52, 73, 94)
-    background: rgba(52, 73, 94, 0.07)
+  colors:
+    light:
+      main: rgb(52, 73, 94)
+      background: rgba(52, 73, 94, 0.07)
+    dark:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
   description: A simple React application that displays a world map with location markers.
   source: https://github.com/timphillips/travel-map
   tech:
@@ -70,9 +90,13 @@
 
 - id: parallax
   name: parallax images
-  color:
-    main: rgb(230, 126, 34)
-    background: rgba(230, 126, 34, 0.1)
+  colors:
+    light:
+      main: rgb(230, 126, 34)
+      background: rgba(230, 126, 34, 0.1)
+    dark:
+      main: rgb(149, 165, 166)
+      background: rgba(149, 165, 166, 0.1)
   description: Two-and-a-half-dimensional images created from still photographs.
   source: https://github.com/timphillips/parallax
   tech:

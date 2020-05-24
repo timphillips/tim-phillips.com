@@ -28,7 +28,6 @@ const StyledHeader = styled.header`
   grid-area: header;
   font-family: "Quando", serif;
   margin: 0 0 10px 0;
-  color: ${props => props.theme.color.main};
 `;
 
 const NavLinkListItem = styled.li`
@@ -56,7 +55,6 @@ const StyledLink = styled(Link)`
   font-size: large;
   display: flex;
   flex-direction: column;
-  color: ${props => props.theme.color.main};
   transition: opacity 0.6s ease 0s;
   align-items: center;
 
@@ -92,7 +90,6 @@ const MenuButton = styled.button`
   outline: none;
   border: none;
   background: transparent;
-  color: ${props => props.theme.color.main};
   display: none;
   padding: 0;
   cursor: pointer;

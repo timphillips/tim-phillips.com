@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Paragraph = styled.p`
-  font-family: "Quando", serif;
   margin-bottom: 20px;
-  font-size: 14px;
   line-height: 28px;
   text-align: justify;
 

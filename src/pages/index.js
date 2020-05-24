@@ -25,7 +25,7 @@ export const pageQuery = graphql`
           expandIconColor
           image {
             childImageSharp {
-              fluid(maxWidth: 4000, quality: 100) {
+              fluid(maxWidth: 4000) {
                 ...GatsbyImageSharpFluid
               }
             }

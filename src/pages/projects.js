@@ -1,4 +1,5 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import styled, { ThemeContext } from "styled-components";
 
 import BookSvg from "../assets/book.svg";
 import CameraSvg from "../assets/camera.svg";
@@ -12,14 +13,13 @@ import SEO from "../components/SEO";
 import TravelMapSvg from "../assets/travel-map.svg";
 import VisibilitySensor from "react-visibility-sensor";
 import { graphql } from "gatsby";
-import styled from "styled-components";
 
 const ProjectIcon = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const Project = styled.li`
+const ProjectListItem = styled.li`
   position: relative;
   display: grid;
   grid-template-columns: 210px 1fr;
@@ -153,9 +153,15 @@ export const pageQuery = graphql`
     projects: allProjectsYaml {
       edges {
         node {
-          color {
-            background
-            main
+          colors {
+            light {
+              main
+              background
+            }
+            dark {
+              main
+              background
+            }
           }
           description
           id
@@ -170,91 +176,96 @@ export const pageQuery = graphql`
   }
 `;
 
-const ProjectsPage = ({ data }) => (
-  <Layout theme="dark">
-    <SEO title="Projects" />
-    <Paragraph style={{ textAlign: "left", marginTop: 40 }}>
-      This is a collection of some of my personal projects and coding
-      experiments.
-    </Paragraph>
-    <ProjectList>
-      {data.projects.edges.map(({ node }) => {
-        const Icon = iconsByProjectId[node.id];
-        return (
-          <Project key={node.id} color={node.color}>
-            <ProjectLink
-              color={node.color}
-              href={node.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            ></ProjectLink>
-            <ProjectIcon>
-              <VisibilitySensor
-                partialVisibility
-                minTopValue={100}
-                intervalDelay
-                onChange={visible =>
-                  onProjectIconVisiblyChanged(
-                    visible,
-                    node.id,
-                    node.color.background
-                  )
-                }
+const Project = ({
+  project: { colors, id, name, url, source, description, tech }
+}) => {
+  const theme = React.useContext(ThemeContext);
+  const Icon = iconsByProjectId[id];
+  const color = theme && theme.id === "dark" ? colors.dark : colors.light;
+  return (
+    <ProjectListItem color={color}>
+      <ProjectLink
+        color={color}
+        href={url}
+        rel="noopener noreferrer"
+        target="_blank"
+      ></ProjectLink>
+      <ProjectIcon>
+        <VisibilitySensor
+          partialVisibility
+          minTopValue={100}
+          intervalDelay
+          onChange={visible =>
+            onProjectIconVisiblyChanged(visible, id, color.background)
+          }
+        >
+          <Icon
+            id={`projectIcon_${id}`}
+            width="100%"
+            height="100%"
+            style={{
+              width: 180,
+              stroke: color.main,
+              strokeWidth: 1.3,
+              strokeDasharray: 2200,
+              strokeDashoffset: 2200,
+              transition: "stroke-dashoffset 4000ms ease-in-out 0s, fill 0.3s"
+            }}
+          />
+        </VisibilitySensor>
+      </ProjectIcon>
+      <ProjectContent color={color}>
+        <ProjectHeader>
+          <ProjectTitle>{name}</ProjectTitle>
+          <ProjectExternalLinks>
+            {source && (
+              <ProjectExternalLink
+                href={source}
+                rel="noopener noreferrer"
+                target="_blank"
+                title="Open Source on GitHub"
               >
-                <Icon
-                  id={`projectIcon_${node.id}`}
-                  width="100%"
-                  height="100%"
-                  style={{
-                    width: 180,
-                    stroke: node.color.main,
-                    strokeWidth: 1.3,
-                    strokeDasharray: 2200,
-                    strokeDashoffset: 2200,
-                    transition:
-                      "stroke-dashoffset 4000ms ease-in-out 0s, fill 0.3s"
-                  }}
-                />
-              </VisibilitySensor>
-            </ProjectIcon>
-            <ProjectContent color={node.color}>
-              <ProjectHeader>
-                <ProjectTitle>{node.name}</ProjectTitle>
-                <ProjectExternalLinks>
-                  {node.source && (
-                    <ProjectExternalLink
-                      href={node.source}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title="Open Source on GitHub"
-                    >
-                      <FaGithub />
-                    </ProjectExternalLink>
-                  )}
-                  {node.url && (
-                    <ProjectExternalLink
-                      href={node.url}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title={`${node.name}`}
-                    >
-                      <FaExternalLinkAlt />
-                    </ProjectExternalLink>
-                  )}
-                </ProjectExternalLinks>
-              </ProjectHeader>
-              <ProjectDescription>{node.description}</ProjectDescription>
-              <TechList>
-                {node.tech.map(tech => (
-                  <TechItem key={tech}>{tech}</TechItem>
-                ))}
-              </TechList>
-            </ProjectContent>
-          </Project>
-        );
-      })}
-    </ProjectList>
-  </Layout>
-);
+                <FaGithub />
+              </ProjectExternalLink>
+            )}
+            {url && (
+              <ProjectExternalLink
+                href={url}
+                rel="noopener noreferrer"
+                target="_blank"
+                title={`${name}`}
+              >
+                <FaExternalLinkAlt />
+              </ProjectExternalLink>
+            )}
+          </ProjectExternalLinks>
+        </ProjectHeader>
+        <ProjectDescription>{description}</ProjectDescription>
+        <TechList>
+          {tech.map(tech => (
+            <TechItem key={tech}>{tech}</TechItem>
+          ))}
+        </TechList>
+      </ProjectContent>
+    </ProjectListItem>
+  );
+};
+
+const ProjectsPage = ({ data }) => {
+  return (
+    <Layout theme="dark">
+      <SEO title="Projects" />
+      <Paragraph style={{ textAlign: "left", marginTop: 40 }}>
+        This is a collection of some of my personal projects and coding
+        experiments.
+      </Paragraph>
+      <ProjectList>
+        {data.projects.edges.map(({ node }) => (
+          <Project key={node.id} project={node} />
+        ))}
+      </ProjectList>
+    </Layout>
+  );
+};
 
 export default ProjectsPage;

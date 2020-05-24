@@ -1,11 +1,15 @@
-import { dark, resolveTheme } from "../assets/theme";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { dark, light } from "../assets/theme";
+import styled, {
+  ThemeProvider,
+  createGlobalStyle,
+  withTheme
+} from "styled-components";
 
 import Footer from "./Footer";
 import Header from "./Header";
 import React from "react";
 import { Reset } from "styled-reset";
-import { useTheme } from "../hooks/theme";
+import { ThemeManagerContext } from "gatsby-styled-components-dark-mode";
 
 const LayoutFrame = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
@@ -31,7 +35,6 @@ const LayoutFrame = styled.div`
 
 const StyledMain = styled.main`
   grid-area: main;
-  color: ${props => props.theme.color.main};
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -41,27 +44,23 @@ const GlobalStyle = createGlobalStyle`
     transition: background 0.2s ease-out;
   }
 
-  body.dark {
-    background-color: ${dark.color.background};
+  a:visited,
+  a:active {
+    color: inherit;
   }
 `;
 
-const Layout = ({ children }) => {
-  const [themeId, toggleTheme] = useTheme();
-
-  const theme = resolveTheme(themeId);
-  console.log(theme);
+const Layout = withTheme(({ children }) => {
+  const theme = React.useContext(ThemeManagerContext);
   return (
     <LayoutFrame>
       <Reset />
-      <GlobalStyle theme={theme} />
-      <ThemeProvider theme={theme}>
-        <Header toggleTheme={toggleTheme} />
-        <StyledMain>{children}</StyledMain>
-        <Footer />
-      </ThemeProvider>
+      <GlobalStyle />
+      <Header toggleTheme={() => theme.toggleDark()} />
+      <StyledMain>{children}</StyledMain>
+      <Footer />
     </LayoutFrame>
   );
-};
+});
 
 export default Layout;
