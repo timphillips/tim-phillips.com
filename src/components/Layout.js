@@ -1,9 +1,4 @@
-import { dark, light } from "../assets/theme";
-import styled, {
-  ThemeProvider,
-  createGlobalStyle,
-  withTheme
-} from "styled-components";
+import styled, { createGlobalStyle, withTheme } from "styled-components";
 
 import Footer from "./Footer";
 import Header from "./Header";

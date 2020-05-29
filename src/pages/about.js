@@ -132,7 +132,7 @@ export const pageQuery = graphql`
   query {
     profilePic: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fluid(maxWidth: 4000, quality: 100) {
+        fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid
         }
       }
