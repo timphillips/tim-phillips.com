@@ -1,4 +1,4 @@
 // custom typefaces
 
-import "typeface-quando";
+import "typeface-inter";
 import "prismjs/themes/prism.css";

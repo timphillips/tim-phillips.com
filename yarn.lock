@@ -12775,10 +12775,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-quando@0.0.72:
-  version "0.0.72"
-  resolved "https://registry.yarnpkg.com/typeface-quando/-/typeface-quando-0.0.72.tgz#f062a0b0dff6a59395d602399b06b669409039c1"
-  integrity sha512-36Xj44uIcFVeV80S3vTN83HT6z5asa5quDbZMEIjwTMrLNEIVQzMBi1qKDdkf4d9bCn/B8PVtY1t7ToeLNtT7Q==
+typeface-inter@^3.12.0:
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.12.0.tgz#3cd7cdae730daa73cc01e88fdbe27601dc7c4fd7"
+  integrity sha512-3vKBTKCl6S0OJhMKwmyAOodsfTD3Gxsrj5ReavpQmdZ385ecUr3swfNxiBZ4u594mNfojlqL/zUebavV3A1yCA==
 
 unbzip2-stream@^1.0.9:
   version "1.4.0"

@@ -99,7 +99,7 @@ const StyledButton = styled.button`
   width: 18px;
   cursor: pointer;
   border-radius: 10px;
-  border: 3px solid ${props => props.theme.color.main};
+  border: 2px solid ${props => props.theme.color.main};
   background-color: ${props =>
     props.active ? props.theme.color.main : "transparent"};
   outline: none;

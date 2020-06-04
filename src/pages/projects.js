@@ -82,8 +82,10 @@ const ProjectHeader = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-  font-family: "Quando", serif;
-  font-weight: 700;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 const ProjectExternalLinks = styled.div`

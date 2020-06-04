@@ -11,8 +11,10 @@ export const Paragraph = styled.p`
 `;
 
 export const LargerParagraph = styled(Paragraph)`
-  font-family: "Quando", serif;
-  font-size: 20px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-size: 23px;
+  font-weight: 300;
   line-height: 35px;
   padding: 20px;
   margin: 0 0 50px 0;

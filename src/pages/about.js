@@ -19,7 +19,7 @@ const Content = styled.section`
 `;
 
 const Highlight = styled.span`
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 const ProfilePic = styled(Image)`
@@ -43,9 +43,9 @@ const AboutPage = ({ data }) => (
     <Content>
       <div>
         <LargerParagraph>
-          I'm a <Highlight>full stack software developer</Highlight>{" "}
-          specializing in the construction of{" "}
-          <Highlight>enterprise-grade</Highlight> web applications.
+          I'm a <Highlight>full stack software engineer</Highlight> specializing
+          in the construction of <Highlight>enterprise-grade</Highlight> web
+          applications.
         </LargerParagraph>
         <Paragraph>
           Currently, I'm working as a senior developer on the{" "}

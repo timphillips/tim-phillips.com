@@ -19,8 +19,8 @@ const ToggleContainer = styled.div`
 const Title = styled.h1`
   border-radius: 4px;
   letter-spacing: 2px;
-  font-size: 35px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 500;
   margin-bottom: 10px;
 
   @media (max-width: 310px) {
@@ -30,7 +30,8 @@ const Title = styled.h1`
 
 const StyledHeader = styled.header`
   grid-area: header;
-  font-family: "Quando", serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   margin: 0 0 10px 0;
   color: ${props => props.theme.color.main};
 `;
@@ -57,7 +58,7 @@ const NavArrow = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   box-shadow: none;
-  font-size: large;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   color: ${props => props.theme.color.main};
@@ -76,7 +77,7 @@ const StyledLink = styled(Link)`
 const StyledNav = styled.nav`
   display: grid;
   grid-template-columns: 1fr auto;
-  border-bottom: 3px solid ${props => props.theme.color.main};
+  border-bottom: 2px solid ${props => props.theme.color.main};
   overflow: hidden;
   transition: height 0.4s;
 
