@@ -39,8 +39,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets/backgrounds`,
-        name: `backgrounds`
+        path: `${__dirname}/content/assets/images`,
+        name: `images`
       }
     },
     {

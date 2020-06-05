@@ -38,7 +38,7 @@ const Link = styled.a`
 `;
 
 const AboutPage = ({ data }) => (
-  <Layout theme="dark">
+  <Layout>
     <SEO title="About" />
     <Content>
       <div>

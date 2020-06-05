@@ -2,7 +2,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "gatsby";
 import React from "react";
-import ThemeToggle from "./ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 import styled from "styled-components";
 
 const activeClassName = "link-active";

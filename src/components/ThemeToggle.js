@@ -12,15 +12,12 @@ const ToggleButton = styled.button`
   outline: none;
 `;
 
-function ThemeToggle({ onChange }) {
+export const ThemeToggle = ({ onChange }) => {
   const theme = React.useContext(ThemeContext);
-
   const Icon = theme && theme.id === "light" ? FiMoon : FiSun;
   return (
-    <ToggleButton onClick={onChange}>
+    <ToggleButton onClick={onChange} aria-label="Toggle theme">
       <Icon size="23"></Icon>
     </ToggleButton>
   );
-}
-
-export default ThemeToggle;
+};

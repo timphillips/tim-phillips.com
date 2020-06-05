@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 
 import React from "react";
-import SocialLink from "../components/SocialLink";
+import { SocialLink } from "../components/SocialLink";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`

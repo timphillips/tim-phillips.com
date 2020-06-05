@@ -1,25 +1,25 @@
-- id: background-skye
+- id: gallery-skye
   name: Skye, Scotland
-  image: assets/backgrounds/background-skye.jpg
+  image: assets/images/gallery-skye.jpg
   position: 53% 60%
   expandIconColor: "white"
-- id: background-ozette
+- id: gallery-ozette
   name: Ozette, Washington
-  image: assets/backgrounds/background-ozette.jpg
+  image: assets/images/gallery-ozette.jpg
   position: 39% 50%
   expandIconColor: "#37474f"
-- id: background-zion
+- id: gallery-zion
   name: Zion, Utah
-  image: assets/backgrounds/background-zion.jpg
+  image: assets/images/gallery-zion.jpg
   position: 90% 60%
   expandIconColor: "white"
-- id: background-iceland
+- id: gallery-iceland
   name: Iceland
-  image: assets/backgrounds/background-iceland.jpg
+  image: assets/images/gallery-iceland.jpg
   position: 65% 60%
   expandIconColor: "#37474f"
-- id: background-redwood
+- id: gallery-redwood
   name: Redwood National Park, California
-  image: assets/backgrounds/background-redwood.jpg
+  image: assets/images/gallery-redwood.jpg
   position: center 90%
   expandIconColor: "white"

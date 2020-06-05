@@ -4,7 +4,7 @@ import Image from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
 
-const BackgroundImage = styled(Image)`
+const GalleryImage = styled(Image)`
   left: 0;
   right: 0;
   top: 0;
@@ -12,14 +12,14 @@ const BackgroundImage = styled(Image)`
   border-radius: 3px;
 `;
 
-const BackgroundImageList = styled.ul`
+const GalleryImageList = styled.ul`
   position: relative;
   flex: 1;
   display: flex;
   margin-top: 24px;
 `;
 
-const BackgroundImageListItem = styled.li`
+const GalleryImageListItem = styled.li`
   opacity: ${props => (props.visible ? 1 : 0)};
   margin: 0 auto;
   position: absolute;
@@ -53,18 +53,18 @@ const ExpandButton = styled(({ expandIconColor, ...rest }) => (
   color: ${props => props.expandIconColor}};
 `;
 
-export const Background = ({ currentId, images }) => {
+export const Gallery = ({ currentId, images }) => {
   const [expanded, setExpanded] = React.useState(false);
   const ExpandIcon = expanded ? MdFullscreenExit : MdFullscreen;
   return (
-    <BackgroundImageList>
+    <GalleryImageList>
       {images.map(({ id, image, style, position, expandIconColor }) => (
-        <BackgroundImageListItem
+        <GalleryImageListItem
           key={id}
           expanded={expanded}
           visible={id === currentId}
         >
-          <BackgroundImage
+          <GalleryImage
             imageStyle={style}
             fluid={image.childImageSharp.fluid}
             style={{ position: "absolute" }}
@@ -76,12 +76,13 @@ export const Background = ({ currentId, images }) => {
           <ExpandButton
             expandIconColor={expandIconColor}
             onClick={() => setExpanded(!expanded)}
+            aria-label={expanded ? "Collapse image" : "Expand image"}
           >
             <ExpandIcon size={30} />
           </ExpandButton>
-        </BackgroundImageListItem>
+        </GalleryImageListItem>
       ))}
-    </BackgroundImageList>
+    </GalleryImageList>
   );
 };
 
@@ -111,14 +112,14 @@ const StyledButton = styled.button`
   }
 `;
 
-export const BackgroundPicker = ({ imageIds, currentId, onChange }) => (
+export const GalleryImagePicker = ({ imageIds, currentId, onChange }) => (
   <StyledUnorderedList>
     {imageIds.map(id => (
       <StyledListItem key={id}>
         <StyledButton
           active={currentId === id}
           onClick={() => onChange(id)}
-          aria-label={`Set background to ${id}`}
+          aria-label={`Set gallery image to ${id}`}
         />
       </StyledListItem>
     ))}

@@ -255,7 +255,7 @@ const Project = ({
 
 const ProjectsPage = ({ data }) => {
   return (
-    <Layout theme="dark">
+    <Layout>
       <SEO title="Projects" />
       <Paragraph style={{ textAlign: "left", marginTop: 40 }}>
         This is a collection of some of my personal projects and coding

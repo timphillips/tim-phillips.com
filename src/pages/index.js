@@ -1,4 +1,4 @@
-import { Background, BackgroundPicker } from "../components/Background";
+import { Gallery, GalleryImagePicker } from "../components/Gallery";
 
 import Layout from "../components/Layout";
 import React from "react";
@@ -16,7 +16,7 @@ const Content = styled.section`
 
 export const pageQuery = graphql`
   query {
-    backgrounds: allBackgroundsYaml {
+    gallery: allGalleryYaml {
       edges {
         node {
           id
@@ -36,23 +36,23 @@ export const pageQuery = graphql`
   }
 `;
 
-const HomePage = ({ data: { backgrounds } }) => {
-  const [backgroundId, setBackgroundId] = React.useState(
-    backgrounds.edges[0].node.id // default to first image
+const HomePage = ({ data: { gallery } }) => {
+  const [galleryImageId, setGalleryImageId] = React.useState(
+    gallery.edges[0].node.id // default to first image
   );
 
   return (
     <Layout>
       <SEO title="Home" />
       <Content>
-        <BackgroundPicker
-          currentId={backgroundId}
-          imageIds={backgrounds.edges.map(b => b.node.id)}
-          onChange={setBackgroundId}
+        <GalleryImagePicker
+          currentId={galleryImageId}
+          imageIds={gallery.edges.map(b => b.node.id)}
+          onChange={setGalleryImageId}
         />
-        <Background
-          currentId={backgroundId}
-          images={backgrounds.edges.map(b => b.node)}
+        <Gallery
+          currentId={galleryImageId}
+          images={gallery.edges.map(b => b.node)}
         />
       </Content>
     </Layout>
