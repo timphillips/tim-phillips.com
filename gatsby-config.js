@@ -3,9 +3,9 @@ module.exports = {
     title: `Tim Phillips`,
     author: {
       name: `Tim Phillips`,
-      summary: `Full Stack Software Developer`
+      summary: `Full Stack Software Engineer`
     },
-    description: `Personal homepage of Tim Phillips`,
+    description: `Personal website of Tim Phillips`,
     siteUrl: `https://www.tim-phillips.com`,
     social: {
       twitter: `tim__phillips`
