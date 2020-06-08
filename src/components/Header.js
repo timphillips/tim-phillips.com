@@ -15,25 +15,32 @@ const ToggleContainer = styled.div`
   height: 30px;
   margin-bottom: 10px;
 `;
-
 const Title = styled.h1`
   border-radius: 4px;
   letter-spacing: 2px;
   font-size: 32px;
   font-weight: 500;
   margin-bottom: 10px;
-
-  @media (max-width: 310px) {
-    font-size: 28px;
-  }
 `;
 
 const StyledHeader = styled.header`
   grid-area: header;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-family: ${props => props.theme.font.highlight};
   margin: 0 0 10px 0;
+`;
+
+const MenuButton = styled.button`
+  outline: none;
+  border: none;
+  background: transparent;
   color: ${props => props.theme.color.main};
+  display: none;
+  padding: 0;
+  cursor: pointer;
+
+  @media (max-width: 730px) {
+    display: unset;
+  }
 `;
 
 const NavLinkListItem = styled.li`
@@ -55,13 +62,31 @@ const NavArrow = styled.div`
   visibility: hidden;
 `;
 
+const StyledNav = styled.nav`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border-bottom: 2px solid ${props => props.theme.color.main};
+  overflow: hidden;
+  transition: height 0.4s;
+
+  @media (max-width: 730px) {
+    grid-template-rows: auto 45px;
+    height: ${props => (props.open ? "87px" : "42px")};
+  }
+`;
+
+const NavLinks = styled.ol`
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   box-shadow: none;
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  color: ${props => props.theme.color.main};
   transition: opacity 0.6s ease 0s;
   align-items: center;
 
@@ -74,37 +99,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledNav = styled.nav`
-  display: grid;
-  grid-template-columns: 1fr auto;
-  border-bottom: 2px solid ${props => props.theme.color.main};
-  overflow: hidden;
-  transition: height 0.4s;
-
-  @media (max-width: 730px) {
-    grid-template-rows: auto 45px;
-    height: ${props => (props.open ? "90px" : "44px")};
-  }
-`;
-
-const NavLinks = styled.ol`
-  display: flex;
-  padding: 0;
-  justify-content: space-between;
-`;
-
-const MenuButton = styled.button`
-  outline: none;
-  border: none;
-  background: transparent;
-  color: ${props => props.theme.color.main};
-  display: none;
-  padding: 0;
-  cursor: pointer;
-
-  @media (max-width: 730px) {
-    display: unset;
-  }
+const TitleLink = styled(StyledLink)`
+  align-items: flex-start;
 `;
 
 const NavLink = ({ children, to }) => (
@@ -116,7 +112,7 @@ const NavLink = ({ children, to }) => (
   </NavLinkListItem>
 );
 
-const Header = ({ toggleTheme }) => {
+export const Header = ({ toggleTheme }) => {
   const [open, setOpen] = React.useState();
 
   const links = [
@@ -130,9 +126,9 @@ const Header = ({ toggleTheme }) => {
         <ThemeToggle onChange={toggleTheme} />
       </ToggleContainer>
       <StyledNav open={open}>
-        <StyledLink to="/" style={{ alignItems: "flex-start" }}>
+        <TitleLink to="/">
           <Title>Tim Phillips</Title>
-        </StyledLink>
+        </TitleLink>
         <MenuButton onClick={() => setOpen(!open)}>
           {open ? <AiOutlineCloseCircle size="35" /> : <FiMenu size="35" />}
         </MenuButton>
@@ -147,5 +143,3 @@ const Header = ({ toggleTheme }) => {
     </StyledHeader>
   );
 };
-
-export default Header;

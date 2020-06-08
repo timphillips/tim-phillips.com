@@ -5,22 +5,30 @@ import { SocialLink } from "../components/SocialLink";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
-  grid-area: footer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  grid-area: footer;
   margin: 25px 0;
 `;
 
-const SocialLinks = styled.ul`
-  flex: 1;
+const SocialLinksList = styled.ul`
   display: flex;
+  flex: 1;
   justify-content: space-between;
   max-width: 300px;
 `;
 
-const Footer = () => {
+const SocialLinkListItem = styled.li`
+  opacity: 0.5;
+  transition: opacity 0.6s ease 0s;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const Footer = () => {
   const { social } = useStaticQuery(graphql`
     query {
       social: allSocialYaml {
@@ -37,13 +45,13 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <SocialLinks>
+      <SocialLinksList>
         {social.edges.map(({ node }) => (
-          <SocialLink key={node.name} {...node} />
+          <SocialLinkListItem key={node.name}>
+            <SocialLink {...node} />
+          </SocialLinkListItem>
         ))}
-      </SocialLinks>
+      </SocialLinksList>
     </StyledFooter>
   );
 };
-
-export default Footer;

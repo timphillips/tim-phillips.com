@@ -1,18 +1,17 @@
 import styled, { createGlobalStyle, withTheme } from "styled-components";
 
-import Footer from "./Footer";
-import Header from "./Header";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 import React from "react";
 import { Reset } from "styled-reset";
 import { ThemeManagerContext } from "gatsby-styled-components-dark-mode";
 
-const LayoutFrame = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+const StyledLayout = styled.div`
+  font-family: ${props => props.theme.font.normal};
   min-height: 100vh;
+  max-width: 800px;
   margin: auto;
   padding: 0 50px;
-  max-width: 800px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
@@ -23,7 +22,7 @@ const LayoutFrame = styled.div`
   @media (max-width: 400px) {
     padding: 0 30px;
   }
-  @media (max-width: 360px) {
+  @media (max-width: 320px) {
     padding: 0 10px;
   }
 `;
@@ -39,23 +38,22 @@ const GlobalStyle = createGlobalStyle`
     transition: background 0.2s ease-out;
   }
 
+  a,
   a:visited,
   a:active {
     color: inherit;
   }
 `;
 
-const Layout = withTheme(({ children }) => {
+export const Layout = withTheme(({ children }) => {
   const theme = React.useContext(ThemeManagerContext);
   return (
-    <LayoutFrame>
+    <StyledLayout>
       <Reset />
       <GlobalStyle />
       <Header toggleTheme={() => theme.toggleDark()} />
       <StyledMain>{children}</StyledMain>
       <Footer />
-    </LayoutFrame>
+    </StyledLayout>
   );
 });
-
-export default Layout;

@@ -1,7 +1,7 @@
-import { LargerParagraph, Paragraph } from "../components/Paragraph";
+import { HighlightParagraph, Paragraph } from "../components/Paragraph";
 
 import Image from "gatsby-image";
-import Layout from "../components/Layout";
+import { Layout } from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
@@ -18,7 +18,7 @@ const Content = styled.section`
   }
 `;
 
-const Highlight = styled.span`
+const Bold = styled.span`
   font-weight: 500;
 `;
 
@@ -32,7 +32,6 @@ const ProfilePic = styled(Image)`
 `;
 
 const Link = styled.a`
-  color: ${props => props.theme.color.main};
   text-decoration: underline dashed ${props => props.theme.color.main};
   text-underline-position: under;
 `;
@@ -42,14 +41,13 @@ const AboutPage = ({ data }) => (
     <SEO title="About" />
     <Content>
       <div>
-        <LargerParagraph>
-          I'm a <Highlight>full stack software engineer</Highlight> specializing
-          in the construction of <Highlight>enterprise-grade</Highlight> web
-          applications.
-        </LargerParagraph>
+        <HighlightParagraph>
+          I'm a <Bold>full stack software engineer</Bold> specializing in the
+          construction of <Bold>enterprise-grade</Bold> web applications.
+        </HighlightParagraph>
         <Paragraph>
           Currently, I'm working as a senior developer on the{" "}
-          <Highlight>Executive Tools</Highlight> team at{" "}
+          <Bold>Executive Tools</Bold> team at{" "}
           <Link
             rel="noopener noreferrer"
             target="_blank"

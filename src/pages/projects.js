@@ -3,7 +3,7 @@ import styled, { ThemeContext } from "styled-components";
 
 import BookSvg from "../assets/book.svg";
 import CameraSvg from "../assets/camera.svg";
-import Layout from "../components/Layout";
+import { Layout } from "../components/Layout";
 import LockSvg from "../assets/lock.svg";
 import { Paragraph } from "../components/Paragraph";
 import ParallaxSvg from "../assets/parallax.svg";
@@ -14,9 +14,11 @@ import TravelMapSvg from "../assets/travel-map.svg";
 import VisibilitySensor from "react-visibility-sensor";
 import { graphql } from "gatsby";
 
-const ProjectIcon = styled.div`
-  display: flex;
-  justify-content: center;
+const ProjectList = styled.ol`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 50px;
+  margin: 40px 0;
 `;
 
 const ProjectListItem = styled.li`
@@ -26,30 +28,35 @@ const ProjectListItem = styled.li`
   grid-gap: 20px;
 
   @media (max-width: 720px) {
-    & > ${ProjectIcon} {
-      display: none;
-    }
     grid-template-columns: 1fr;
   }
 `;
 
+const ProjectIcon = styled.div`
+  display: flex;
+  justify-content: center;
+
+  & > svg {
+    fill: transparent;
+  }
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+`;
+
 const ProjectContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 2px;
   padding: 20px;
   min-height: 150px;
   transition: background-color 0.3s;
   border-left: 3px solid ${props => props.color.main};
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 
 const ProjectLink = styled.a`
-  cursor: pointer;
-  color: ${props => props.theme.color.main};
-  text-decoration: none;
-
   position: absolute;
   top: 0;
   right: 0;
@@ -82,8 +89,7 @@ const ProjectHeader = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-family: ${props => props.theme.font.highlight};
   font-size: 20px;
   font-weight: 500;
 `;
@@ -95,16 +101,7 @@ const ProjectExternalLinks = styled.div`
 `;
 
 const ProjectExternalLink = styled.a`
-  color: ${props => props.theme.color.main};
   margin-left: 10px;
-  cursor: pointer;
-`;
-
-const ProjectList = styled.ol`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 50px;
-  margin: 40px 0;
 `;
 
 const ProjectDescription = styled.p`
@@ -116,7 +113,7 @@ const ProjectDescription = styled.p`
 
 const TechList = styled.ul``;
 
-const TechItem = styled.li`
+const TechListItem = styled.li`
   display: inline-block;
   padding: 6px 10px 5px;
   margin: 6px 3px 0 3px;
@@ -126,13 +123,17 @@ const TechItem = styled.li`
   border-radius: 3px;
 `;
 
-const onProjectIconVisiblyChanged = (visible, iconId, fillColor) => {
-  if (!visible) {
-    return;
-  }
-  const path = document.querySelector(`#projectIcon_${iconId}`);
-  if (path) {
-    path.style.strokeDashoffset = 0;
+/**
+ * Starts animating the icon's SVG path when the given icon becomes visible.
+ *
+ * See https://css-tricks.com/svg-line-animation-works/ for details.
+ */
+const onProjectIconVisiblyChanged = (visible, iconId) => {
+  if (visible) {
+    const path = document.getElementById(`projectIcon_${iconId}`);
+    if (path) {
+      path.style.strokeDashoffset = 0;
+    }
   }
 };
 
@@ -144,39 +145,6 @@ const iconsByProjectId = {
   parallax: ParallaxSvg,
   snapshots: CameraSvg
 };
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    projects: allProjectsYaml {
-      edges {
-        node {
-          colors {
-            light {
-              main
-              background
-            }
-            dark {
-              main
-              background
-            }
-          }
-          description
-          id
-          name
-          source
-          url
-          year
-          tech
-        }
-      }
-    }
-  }
-`;
 
 const Project = ({
   project: { colors, id, name, url, source, description, tech }
@@ -191,7 +159,7 @@ const Project = ({
         href={url}
         rel="noopener noreferrer"
         target="_blank"
-      ></ProjectLink>
+      />
       <ProjectIcon>
         <VisibilitySensor
           partialVisibility
@@ -245,13 +213,41 @@ const Project = ({
         <ProjectDescription>{description}</ProjectDescription>
         <TechList>
           {tech.map(tech => (
-            <TechItem key={tech}>{tech}</TechItem>
+            <TechListItem key={tech}>{tech}</TechListItem>
           ))}
         </TechList>
       </ProjectContent>
     </ProjectListItem>
   );
 };
+
+export const pageQuery = graphql`
+  query {
+    projects: allProjectsYaml {
+      edges {
+        node {
+          colors {
+            light {
+              main
+              background
+            }
+            dark {
+              main
+              background
+            }
+          }
+          description
+          id
+          name
+          source
+          url
+          year
+          tech
+        }
+      }
+    }
+  }
+`;
 
 const ProjectsPage = ({ data }) => {
   return (
