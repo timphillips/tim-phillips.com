@@ -22,16 +22,11 @@ const Title = styled.h1`
   font-size: 32px;
   font-weight: 500;
   margin-bottom: 10px;
-
-  @media (max-width: 310px) {
-    font-size: 28px;
-  }
 `;
 
 const StyledHeader = styled.header`
   grid-area: header;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-family: ${props => props.theme.font.highlight};
   margin: 0 0 10px 0;
   color: ${props => props.theme.color.main};
 `;
@@ -61,7 +56,6 @@ const StyledLink = styled(Link)`
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  color: ${props => props.theme.color.main};
   transition: opacity 0.6s ease 0s;
   align-items: center;
 
@@ -83,7 +77,7 @@ const StyledNav = styled.nav`
 
   @media (max-width: 730px) {
     grid-template-rows: auto 45px;
-    height: ${props => (props.open ? "90px" : "44px")};
+    height: ${props => (props.open ? "87px" : "44px")};
   }
 `;
 

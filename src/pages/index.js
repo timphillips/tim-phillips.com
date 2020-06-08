@@ -1,6 +1,6 @@
-import { Gallery, GalleryImagePicker } from "../components/Gallery";
-
-import Layout from "../components/Layout";
+import { Gallery } from "../components/Gallery";
+import { GalleryImagePicker } from "../components/GalleryImagePicker";
+import { Layout } from "../components/Layout";
 import React from "react";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";

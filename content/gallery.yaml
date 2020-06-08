@@ -1,25 +1,25 @@
 - id: gallery-skye
   name: Skye, Scotland
+  expandIconColor: "rgb(255, 255, 255)"
   image: assets/images/gallery-skye.jpg
   position: 53% 60%
-  expandIconColor: "white"
 - id: gallery-ozette
   name: Ozette, Washington
+  expandIconColor: "rgb(55, 71, 79)"
   image: assets/images/gallery-ozette.jpg
   position: 39% 50%
-  expandIconColor: "#37474f"
 - id: gallery-zion
   name: Zion, Utah
+  expandIconColor: "rgb(255, 255, 255)"
   image: assets/images/gallery-zion.jpg
   position: 90% 60%
-  expandIconColor: "white"
 - id: gallery-iceland
   name: Iceland
+  expandIconColor: "rgb(55, 71, 79)"
   image: assets/images/gallery-iceland.jpg
   position: 65% 60%
-  expandIconColor: "#37474f"
 - id: gallery-redwood
   name: Redwood National Park, California
+  expandIconColor: "rgb(255, 255, 255)"
   image: assets/images/gallery-redwood.jpg
   position: center 90%
-  expandIconColor: "white"

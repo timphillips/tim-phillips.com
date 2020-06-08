@@ -3,7 +3,7 @@ import styled, { ThemeContext } from "styled-components";
 
 import BookSvg from "../assets/book.svg";
 import CameraSvg from "../assets/camera.svg";
-import Layout from "../components/Layout";
+import { Layout } from "../components/Layout";
 import LockSvg from "../assets/lock.svg";
 import { Paragraph } from "../components/Paragraph";
 import ParallaxSvg from "../assets/parallax.svg";
@@ -46,8 +46,6 @@ const ProjectContent = styled.div`
 `;
 
 const ProjectLink = styled.a`
-  cursor: pointer;
-  color: ${props => props.theme.color.main};
   text-decoration: none;
 
   position: absolute;
@@ -82,8 +80,7 @@ const ProjectHeader = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-family: ${props => props.theme.font.highlight};
   font-size: 20px;
   font-weight: 500;
 `;
@@ -95,9 +92,7 @@ const ProjectExternalLinks = styled.div`
 `;
 
 const ProjectExternalLink = styled.a`
-  color: ${props => props.theme.color.main};
   margin-left: 10px;
-  cursor: pointer;
 `;
 
 const ProjectList = styled.ol`
@@ -116,7 +111,7 @@ const ProjectDescription = styled.p`
 
 const TechList = styled.ul``;
 
-const TechItem = styled.li`
+const TechListItem = styled.li`
   display: inline-block;
   padding: 6px 10px 5px;
   margin: 6px 3px 0 3px;
@@ -245,7 +240,7 @@ const Project = ({
         <ProjectDescription>{description}</ProjectDescription>
         <TechList>
           {tech.map(tech => (
-            <TechItem key={tech}>{tech}</TechItem>
+            <TechListItem key={tech}>{tech}</TechListItem>
           ))}
         </TechList>
       </ProjectContent>

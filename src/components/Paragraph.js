@@ -10,9 +10,8 @@ export const Paragraph = styled.p`
   }
 `;
 
-export const LargerParagraph = styled(Paragraph)`
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+export const HighlightParagraph = styled(Paragraph)`
+  font-family: ${props => props.theme.font.highlight};
   font-size: 23px;
   font-weight: 300;
   line-height: 35px;
