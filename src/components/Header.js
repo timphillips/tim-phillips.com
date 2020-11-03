@@ -116,8 +116,8 @@ export const Header = ({ toggleTheme }) => {
   const [open, setOpen] = React.useState();
 
   const links = [
-    { label: "about", to: "/about" },
-    { label: "projects", to: "/projects" }
+    { label: "about", to: "/about" }
+    // { label: "projects", to: "/projects" }
   ];
 
   return (
