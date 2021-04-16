@@ -46,27 +46,24 @@ const AboutPage = ({ data }) => (
           construction of <Bold>enterprise-grade</Bold> web applications.
         </HighlightParagraph>
         <Paragraph>
-          Currently, I'm working as a senior developer on the{" "}
-          <Bold>Executive Tools</Bold> team at{" "}
-          <Link
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Pandell"
-            href="https://www.pandell.com"
-          >
-            Pandell
-          </Link>
-          . Prior to that, I spent a number of years as the technical lead for
-          Pandell's flagship accounting product,{" "}
-          <Link
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Pandell JV"
-            href="https://www.pandelljv.com/"
-          >
-            Pandell JV
+          Currently, I'm working as a senior front-end developer at{" "}
+          <Link title="Ravelin" href="https://www.ravelin.com">
+            Ravelin
           </Link>
           .
+        </Paragraph>
+        <Paragraph>
+          Prior to Ravelin, I spent seven years at{" "}
+          <Link title="Pandell" href="https://www.pandell.com">
+            Pandell
+          </Link>
+          . I was the technical lead for Pandell's flagship accounting
+          product,{" "}
+          <Link title="Pandell JV" href="https://www.pandell.com/energy/pandelljv/">
+            Pandell JV
+          </Link>
+          , and I also worked as a senior developer on the Executive Tools
+          team.
         </Paragraph>
 
         <Paragraph>
