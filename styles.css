@@ -1,0 +1,32 @@
+html {
+  font-family: Consolas, Monospace, Courier;
+  color: #3a3a3a;
+}
+
+body {
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 50px auto;
+}
+
+h1, h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: calc(100vh - 280px);
+}
+
+::selection {
+  background: rgba(0,0,0,.071);
+}
